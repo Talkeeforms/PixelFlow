@@ -28,7 +28,7 @@ function AppTitleValue() {
       }}
     >
       <Typography variant="h6" fontWeight="700">
-        Sistema Teste
+        PixelFlow
       </Typography>
       <Chip size="small" label="BETA" color="info" />
     </div>
