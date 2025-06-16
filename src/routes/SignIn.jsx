@@ -23,11 +23,10 @@ export default function SignIn() {
 
   const handleSignIn = () => {
     navigate("/");
-    console.log("clicked");
   };
 
   const TitleLogin = () => {
-    return <h2>Entrar</h2>;
+    return <img src="src/assets/logo.png" style={{width:'auto', height:'auto', maxHeight:'140px'}}></img>
   };
 
   const AlertBox = () => {
