@@ -26,7 +26,12 @@ export default function SignIn() {
   };
 
   const TitleLogin = () => {
-    return <img src="src/assets/logo.png" style={{width:'auto', height:'auto', maxHeight:'140px'}}></img>
+    return (
+      <img
+        src="src/assets/logo.png"
+        style={{ width: "auto", height: "auto", maxHeight: "140px" }}
+      ></img>
+    );
   };
 
   const AlertBox = () => {
