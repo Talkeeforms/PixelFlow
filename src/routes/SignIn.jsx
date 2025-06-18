@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { SignInPage } from "@toolpad/core";
 import {
-  Container,
   Alert,
   Checkbox,
   FormControlLabel,
   Button,
   Link,
+  Box,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +22,7 @@ export default function SignIn() {
   const navigate = useNavigate();
 
   const handleSignIn = () => {
-    navigate("/");
+    navigate("/example");
   };
 
   const TitleLogin = () => {
@@ -115,38 +115,66 @@ export default function SignIn() {
 
   const forgotPassword = () => {
     return (
-      <Link href="/" underline="none" sx={{ fontSize: 14 }}>
+      <Link href="/example" underline="none" sx={{ fontSize: 14 }}>
         Esqueceu a senha?
       </Link>
     );
   };
 
   return (
-    <Container>
-      <SignInPage
-        signIn={handleSignIn}
-        providers={providers}
-        slotProps={{
-          emailField: {
-            variant: "standard",
-            onChange: (e) => setEmail(e.target.value),
-            value: email,
-          },
-          passwordField: {
-            variant: "standard",
-            onChange: (e) => setPassw(e.target.value),
-            value: passw,
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: { xs: "1fr", md: "2fr 1fr" },
+        height: "100vh",
+      }}
+    >
+      <Box
+        sx={{
+          display: { xs: "none", md: "block" },
+          backgroundColor: "black",
+          borderBottomRightRadius: "40px",
+          borderTopRightRadius: "40px",
+        }}
+      ></Box>
+
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          "& .MuiStack-root": {
+            border: "none",
+            boxShadow: "none",
+            padding: 0,
           },
         }}
-        slots={{
-          title: TitleLogin,
-          subtitle: AlertBox,
-          rememberMe: rememberMe,
-          forgotPasswordLink: forgotPassword,
-          submitButton: submitButton,
-          signUpLink: registerButton,
-        }}
-      />
-    </Container>
+      >
+        <SignInPage
+          signIn={handleSignIn}
+          providers={providers}
+          slotProps={{
+            emailField: {
+              variant: "standard",
+              onChange: (e) => setEmail(e.target.value),
+              value: email,
+            },
+            passwordField: {
+              variant: "standard",
+              onChange: (e) => setPassw(e.target.value),
+              value: passw,
+            },
+          }}
+          slots={{
+            title: TitleLogin,
+            subtitle: AlertBox,
+            rememberMe: rememberMe,
+            forgotPasswordLink: forgotPassword,
+            submitButton: submitButton,
+            signUpLink: registerButton,
+          }}
+        />
+      </Box>
+    </Box>
   );
 }

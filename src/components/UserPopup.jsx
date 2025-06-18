@@ -2,7 +2,7 @@ import { Box, Typography, Divider, Button } from "@mui/material";
 import { AccountPreview } from "@toolpad/core/Account";
 import { useNavigate } from "react-router-dom";
 import { useSession } from "@toolpad/core/useSession";
-
+import { useState } from "react";
 //Icons
 import PersonIcon from "@mui/icons-material/Person";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
@@ -31,7 +31,12 @@ function CommonButton({ text, Icon }) {
   return (
     <Button
       variant="text"
-      sx={{ width: "280px", height: "50px", textTransform: "none" }}
+      sx={{
+        width: "280px",
+        height: "50px",
+        textTransform: "none",
+        backgroundColor: "#E3EEFA",
+      }}
       startIcon={Icon ? <Icon /> : null}
     >
       <Typography sx={{ width: "200px" }}>{text}</Typography>
@@ -44,6 +49,10 @@ export function UserPopup() {
   if (!session?.user) {
     return <Typography>No user session available</Typography>;
   }
+
+  const [currentTheme, setCurrentTheme] = useState(
+    document.documentElement.getAttribute("data-toolpad-color-scheme")
+  );
 
   return (
     <div

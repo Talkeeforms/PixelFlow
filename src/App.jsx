@@ -1,13 +1,18 @@
 import { AppProvider } from "@toolpad/core/AppProvider";
-import { DashboardLayout, ThemeSwitcher } from "@toolpad/core/DashboardLayout";
+import {
+  DashboardLayout,
+  ThemeSwitcher,
+  DashboardHeader,
+  DashboardSidebarPageItem,
+} from "@toolpad/core/DashboardLayout";
 import { Typography, Chip, Button, Box } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useMemo } from "react";
+import { useContext, useEffect, useMemo } from "react";
 import { useState } from "react";
 import { UserPopup } from "./components/UserPopup";
-import { Account } from "@toolpad/core";
-
+import { Account, PageContainer } from "@toolpad/core";
+import { Outlet } from "react-router-dom";
+import { useRouter } from "./Router";
 //Icons
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import RssFeedIcon from "@mui/icons-material/RssFeed";
@@ -126,10 +131,12 @@ function ToolBarItems() {
 
 export default function App() {
   const [pathname, setPathname] = useState("/dashboard");
+  const router = useRouter();
   const [currentTheme, setCurrentTheme] = useState(
     document.documentElement.getAttribute("data-toolpad-color-scheme")
   );
   const [currentLogo, setCurrentLogo] = useState(lightLogo);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
   useEffect(() => {
     const handleThemeChange = () => {
@@ -148,14 +155,6 @@ export default function App() {
 
     return () => observer.disconnect();
   }, []);
-
-  const router = useMemo(() => {
-    return {
-      pathname,
-      searchParams: new URLSearchParams(),
-      navigate: (path) => setPathname(String(path)),
-    };
-  }, [pathname]);
 
   const authentication = useMemo(() => {
     return {
@@ -201,8 +200,17 @@ export default function App() {
             toolbarActions: ToolBarItems,
           }}
           defaultSidebarCollapsed
+          disableCollapsibleSidebar
+          renderPageItem={(entry, { defaultRender }) => {
+            if (entry.kind && entry.kind !== "item") {
+              return defaultRender();
+            }
+            return <DashboardSidebarPageItem item={entry} />;
+          }}
         >
-          <DemoPageContent pathname={pathname} />
+          <PageContainer maxWidth="false">
+            <Outlet />
+          </PageContainer>
         </DashboardLayout>
       </AppProvider>
     </>
