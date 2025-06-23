@@ -186,11 +186,10 @@ export default function App() {
           <PageContainer maxWidth="false">
             {/*Responsável pela exibição das páginas dentro da aplicação;*/}
             <Paper
-              elevation={3}
+              elevation={theme.palette.paper.default}
               sx={{
                 padding: 2,
                 borderRadius: 2,
-                backgroundColor: theme.palette.background.whiteCard,
               }}
             >
               <Outlet />

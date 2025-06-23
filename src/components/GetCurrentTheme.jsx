@@ -24,6 +24,9 @@ const getThemeFunction = (mode) => ({
       whiteCard: mode === "light" ? "#FFFFFF" : "#648293",
       popupCard: mode === "light" ? "#E3EEFA" : "#2C2C2C",
     },
+    paper: {
+      default: mode === "light" ? 3 : 3,
+    },
   }, //Armazena variáveis para esquematização de cor de acordo com o tema;
 });
 
