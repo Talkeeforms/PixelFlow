@@ -6,13 +6,15 @@ import {
   DashboardSidebarPageItem,
 } from "@toolpad/core/DashboardLayout";
 import { Typography, Chip, Button, Box } from "@mui/material";
-import { createTheme } from "@mui/material/styles";
+import { createTheme, useTheme } from "@mui/material/styles";
 import { useContext, useEffect, useMemo } from "react";
 import { useState } from "react";
 import { UserPopup } from "./components/UserPopup";
 import { Account, PageContainer } from "@toolpad/core";
 import { Outlet } from "react-router-dom";
 import { useRouter } from "./Router";
+import { getTheme } from "./components/GetCurrentTheme";
+
 //Icons
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import RssFeedIcon from "@mui/icons-material/RssFeed";
@@ -26,22 +28,6 @@ import ChatIcon from "@mui/icons-material/Chat";
 import lightLogo from "./assets/logo.png";
 import darkLogo from "./assets/logoBlack.png";
 
-const demoTheme = createTheme({
-  cssVariables: {
-    colorSchemeSelector: "data-toolpad-color-scheme",
-  },
-  colorSchemes: { light: true, dark: true },
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 600,
-      lg: 1200,
-      xl: 1536,
-    },
-  },
-});
-
 const navigate = [
   {
     segment: "example",
@@ -49,7 +35,7 @@ const navigate = [
     icon: <DashboardIcon />,
   },
   {
-    segment: "queue",
+    segment: "example2",
     title: "Filas",
     icon: <RssFeedIcon />,
   },
@@ -130,11 +116,12 @@ function ToolBarItems() {
 }
 
 export default function App() {
-  const [pathname, setPathname] = useState("/dashboard");
-  const router = useRouter();
   const [currentTheme, setCurrentTheme] = useState(
     document.documentElement.getAttribute("data-toolpad-color-scheme")
   );
+  const theme = getTheme(currentTheme);
+  const [pathname, setPathname] = useState("/dashboard");
+  const router = useRouter();
   const [currentLogo, setCurrentLogo] = useState(lightLogo);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
@@ -190,7 +177,7 @@ export default function App() {
           ),
           title: " ",
         }}
-        theme={demoTheme}
+        theme={theme}
         router={router}
         session={user}
         authentication={authentication}
@@ -200,7 +187,6 @@ export default function App() {
             toolbarActions: ToolBarItems,
           }}
           defaultSidebarCollapsed
-          disableCollapsibleSidebar
           renderPageItem={(entry, { defaultRender }) => {
             if (entry.kind && entry.kind !== "item") {
               return defaultRender();

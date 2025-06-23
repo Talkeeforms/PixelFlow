@@ -1,8 +1,10 @@
 import { LineChart } from "@mui/x-charts/LineChart";
 import { PieChart } from "@mui/x-charts";
 import { Box, Grid } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 export default function ExamplePage() {
+  const theme = useTheme();
   return (
     <>
       <div
@@ -21,16 +23,16 @@ export default function ExamplePage() {
           sx={{
             width: "100%",
             height: "30vh",
-            backgroundColor: "#429FD5",
+            backgroundColor: theme.palette.background.blueCard,
             borderRadius: "15px",
           }}
         ></Box>
         <div>
           <h4>Subtítulo</h4>
-          <div
-            style={{
+          <Box
+            sx={{
               display: "grid",
-              gridTemplateColumns: "1fr 1fr 1fr 1fr",
+              gridTemplateColumns: { md: "1fr 1fr 1fr 1fr", xs: "1fr" },
               gap: "15px",
             }}
           >
@@ -38,7 +40,7 @@ export default function ExamplePage() {
               sx={{
                 width: "100%",
                 height: "15vh",
-                backgroundColor: "#429FD5",
+                backgroundColor: theme.palette.background.blueCard,
                 borderRadius: "15px",
                 marginTop: "20px",
               }}
@@ -47,7 +49,7 @@ export default function ExamplePage() {
               sx={{
                 width: "100%",
                 height: "15vh",
-                backgroundColor: "#429FD5",
+                backgroundColor: theme.palette.background.blueCard,
                 borderRadius: "15px",
                 marginTop: "20px",
               }}
@@ -56,7 +58,7 @@ export default function ExamplePage() {
               sx={{
                 width: "100%",
                 height: "15vh",
-                backgroundColor: "#429FD5",
+                backgroundColor: theme.palette.background.blueCard,
                 borderRadius: "15px",
                 marginTop: "20px",
               }}
@@ -65,19 +67,20 @@ export default function ExamplePage() {
               sx={{
                 width: "100%",
                 height: "15vh",
-                backgroundColor: "#429FD5",
+                backgroundColor: theme.palette.background.blueCard,
                 borderRadius: "15px",
                 marginTop: "20px",
               }}
             ></Box>
-          </div>
+          </Box>
         </div>
         <div>
           <h4>Subtítulo</h4>
-          <div
-            style={{
+          <Box
+            sx={{
               display: "grid",
-              gridTemplateColumns: "1fr 1fr 1fr",
+              gridTemplateColumns: { md: "1fr 1fr 1fr", xs: "1fr" },
+              marginLeft: { xs: "-45px" },
             }}
           >
             <Box>
@@ -124,16 +127,16 @@ export default function ExamplePage() {
                 height={300}
               />
             </Box>
-          </div>
+          </Box>
         </div>
         <div>
           <h4>Subtítulo</h4>
-          <div
-            style={{
+          <Box
+            sx={{
               display: "grid",
-              gridTemplateColumns: "1fr 1fr 1fr",
+              gridTemplateColumns: { md: "1fr 1fr 1fr", xs: "1fr" },
               gap: "15px",
-              backgroundColor: "#DFE3E8",
+              backgroundColor: theme.palette.background.greyCard,
               padding: "30px",
               borderRadius: "15px",
             }}
@@ -142,7 +145,7 @@ export default function ExamplePage() {
               sx={{
                 width: "100%",
                 height: "15vh",
-                backgroundColor: "white",
+                backgroundColor: theme.palette.background.whiteCard,
                 borderRadius: "15px",
                 marginTop: "20px",
               }}
@@ -151,7 +154,7 @@ export default function ExamplePage() {
               sx={{
                 width: "100%",
                 height: "15vh",
-                backgroundColor: "white",
+                backgroundColor: theme.palette.background.whiteCard,
                 borderRadius: "15px",
                 marginTop: "20px",
               }}
@@ -160,12 +163,12 @@ export default function ExamplePage() {
               sx={{
                 width: "100%",
                 height: "15vh",
-                backgroundColor: "white",
+                backgroundColor: theme.palette.background.whiteCard,
                 borderRadius: "15px",
                 marginTop: "20px",
               }}
             ></Box>
-          </div>
+          </Box>
         </div>
       </div>
     </>

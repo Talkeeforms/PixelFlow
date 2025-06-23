@@ -1,6 +1,7 @@
 import SignIn from "./routes/SignIn";
 import App from "./App";
 import ExamplePage from "./routes/ExamplePage";
+import ExamplePage2 from "./routes/ExamplePage2";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "example",
         element: <ExamplePage />,
+      },
+      {
+        path: "example2",
+        element: <ExamplePage2 />,
       },
     ],
   },
