@@ -2,12 +2,10 @@ import { AppProvider } from "@toolpad/core/AppProvider";
 import {
   DashboardLayout,
   ThemeSwitcher,
-  DashboardHeader,
   DashboardSidebarPageItem,
 } from "@toolpad/core/DashboardLayout";
-import { Typography, Chip, Button, Box } from "@mui/material";
-import { createTheme, useTheme } from "@mui/material/styles";
-import { useContext, useEffect, useMemo } from "react";
+import { Chip } from "@mui/material";
+import { useEffect, useMemo } from "react";
 import { useState } from "react";
 import { UserPopup } from "./components/UserPopup";
 import { Account, PageContainer } from "@toolpad/core";
@@ -28,11 +26,12 @@ import ChatIcon from "@mui/icons-material/Chat";
 import lightLogo from "./assets/logo.png";
 import darkLogo from "./assets/logoBlack.png";
 
+//Variável responsável pelo armazém das páginas do menu lateral, incluindo ícone e link;
 const navigate = [
   {
-    segment: "example",
-    title: "Dashboard",
-    icon: <DashboardIcon />,
+    segment: "example", //URL da página correspondente (Como definido em 'main.jsx');
+    title: "Dashboard", //Nome no menu lateral;
+    icon: <DashboardIcon />, //Ícone no menu lateral;
   },
   {
     segment: "example2",
@@ -73,39 +72,20 @@ const navigate = [
   },
 ];
 
-function DemoPageContent({ pathname }) {
-  return (
-    <Box
-      sx={{
-        py: 4,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        textAlign: "center",
-      }}
-    >
-      <Typography>Dashboard content for {pathname}</Typography>
-    </Box>
-  );
-}
-
+//Variável demonstração de usuario no Popup;
 const user = {
   user: {
     name: "Thiago Souza",
     email: "thiago@gmail.com",
     image: "src/assets/user.webp",
   },
-  org: {
-    name: "MUI Inc.",
-    url: "https://mui.com",
-    logo: "https://mui.com/static/logo.svg",
-  },
 };
 
+//Função responsável pelos componentes da barra superior da aplicação;
 function ToolBarItems() {
   return (
     <>
-      <ThemeSwitcher />
+      <ThemeSwitcher /> {/*Botão para troca de tema (Escuro, Claro);*/}
       <Account
         slots={{
           popoverContent: UserPopup,
@@ -118,12 +98,13 @@ function ToolBarItems() {
 export default function App() {
   const [currentTheme, setCurrentTheme] = useState(
     document.documentElement.getAttribute("data-toolpad-color-scheme")
-  );
-  const theme = getTheme(currentTheme);
-  const [pathname, setPathname] = useState("/dashboard");
-  const router = useRouter();
-  const [currentLogo, setCurrentLogo] = useState(lightLogo);
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
+  ); //Variável estado responsável por armazenar o tema atual da aplicação;
+
+  const theme = getTheme(currentTheme || "light"); //Variável que armazena a função gerenciador de temas;
+
+  const router = useRouter(); //Variável responsável por armazenar o gerenciador de Rotas (Título da página atual, ex: "Dashboard", "Filas");
+
+  const [currentLogo, setCurrentLogo] = useState(lightLogo); //Variável responsável pela troca do logotipo entre os temas;
 
   useEffect(() => {
     const handleThemeChange = () => {
@@ -132,7 +113,7 @@ export default function App() {
       );
       setCurrentTheme(newTheme);
       setCurrentLogo(newTheme === "light" ? lightLogo : darkLogo);
-    };
+    }; //Função responsável pela atualização da variável de tema atual, e da troca de logotipo;
 
     const observer = new MutationObserver(handleThemeChange);
     observer.observe(document.documentElement, {
@@ -141,7 +122,7 @@ export default function App() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, []); //Função responsável por atualizações em tempo de execução da aplicação;
 
   const authentication = useMemo(() => {
     return {
@@ -152,13 +133,14 @@ export default function App() {
         setSession(null);
       },
     };
-  }, []);
+  }, []); // Função responsável pelo gerenciamento de autenticação de usuário (Ainda em planejamento);
 
   return (
     <>
       <AppProvider
-        navigation={navigate}
+        navigation={navigate} //Parâmetro de navegação do menu lateral;
         branding={{
+          //Parâmetro de configuração do logotipo na barra superior;
           logo: (
             <div
               style={{
@@ -187,14 +169,16 @@ export default function App() {
             toolbarActions: ToolBarItems,
           }}
           defaultSidebarCollapsed
+          disableCollapsibleSidebar /*Comente para ativar a barra lateral colapsável*/
           renderPageItem={(entry, { defaultRender }) => {
             if (entry.kind && entry.kind !== "item") {
               return defaultRender();
             }
             return <DashboardSidebarPageItem item={entry} />;
-          }}
+          }} //Render de cada item presente no menu lateral;
         >
           <PageContainer maxWidth="false">
+            {/*Responsável pela exibição das páginas dentro da aplicaçao;*/}
             <Outlet />
           </PageContainer>
         </DashboardLayout>

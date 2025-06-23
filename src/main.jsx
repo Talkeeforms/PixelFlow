@@ -7,15 +7,17 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+//Variável responsável pelo roteamento de páginas da aplicação;
 const router = createBrowserRouter([
   {
-    path: "/login",
-    element: <SignIn />,
+    path: "/login", //URL da página;
+    element: <SignIn />, //Página a ser exibida;
   },
   {
+    Component: App,
     path: "/",
-    element: <App />,
     children: [
+      //Páginas internas da aplicação (Páginas do menu lateral);
       {
         path: "example",
         element: <ExamplePage />,

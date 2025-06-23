@@ -2,7 +2,7 @@ import { Box, Typography, Divider, Button } from "@mui/material";
 import { AccountPreview } from "@toolpad/core/Account";
 import { useNavigate } from "react-router-dom";
 import { useSession } from "@toolpad/core/useSession";
-import { useState } from "react";
+import { useTheme } from "@mui/material";
 //Icons
 import PersonIcon from "@mui/icons-material/Person";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
@@ -27,7 +27,7 @@ function LogoutButton() {
   );
 }
 
-function CommonButton({ text, Icon }) {
+function CommonButton({ text, Icon, theme }) {
   return (
     <Button
       variant="text"
@@ -35,7 +35,7 @@ function CommonButton({ text, Icon }) {
         width: "280px",
         height: "50px",
         textTransform: "none",
-        backgroundColor: "#E3EEFA",
+        backgroundColor: theme.palette.background.popupCard,
       }}
       startIcon={Icon ? <Icon /> : null}
     >
@@ -45,14 +45,11 @@ function CommonButton({ text, Icon }) {
 }
 
 export function UserPopup() {
+  const theme = useTheme("light");
   const session = useSession();
   if (!session?.user) {
     return <Typography>No user session available</Typography>;
   }
-
-  const [currentTheme, setCurrentTheme] = useState(
-    document.documentElement.getAttribute("data-toolpad-color-scheme")
-  );
 
   return (
     <div
@@ -76,9 +73,9 @@ export function UserPopup() {
           gap: "10px",
         }}
       >
-        <CommonButton text="Modificar Perfil" Icon={PersonIcon} />
-        <CommonButton text="Financeiro" Icon={AttachMoneyIcon} />
-        <CommonButton text="Configurações" Icon={SettingsIcon} />
+        <CommonButton text="Modificar Perfil" Icon={PersonIcon} theme={theme} />
+        <CommonButton text="Financeiro" Icon={AttachMoneyIcon} theme={theme} />
+        <CommonButton text="Configurações" Icon={SettingsIcon} theme={theme} />
         <LogoutButton />
       </Box>
     </div>

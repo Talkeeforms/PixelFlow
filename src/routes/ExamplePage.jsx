@@ -4,7 +4,7 @@ import { Box, Grid } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 export default function ExamplePage() {
-  const theme = useTheme();
+  const theme = useTheme("light");
   return (
     <>
       <div
@@ -32,7 +32,7 @@ export default function ExamplePage() {
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: { md: "1fr 1fr 1fr 1fr", xs: "1fr" },
+              gridTemplateColumns: { md: "1fr 1fr 1fr 1fr", xs: "1fr 1fr" },
               gap: "15px",
             }}
           >

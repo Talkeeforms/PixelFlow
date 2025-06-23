@@ -9,6 +9,7 @@ import {
   Box,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import "./default.css";
 
 const providers = [{ id: "credentials", name: "Email e Senha" }];
 
