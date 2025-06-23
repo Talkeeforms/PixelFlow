@@ -4,7 +4,7 @@ import {
   ThemeSwitcher,
   DashboardSidebarPageItem,
 } from "@toolpad/core/DashboardLayout";
-import { Chip } from "@mui/material";
+import { Chip, Paper } from "@mui/material";
 import { useEffect, useMemo } from "react";
 import { useState } from "react";
 import { UserPopup } from "./components/UserPopup";
@@ -165,8 +165,14 @@ export default function App() {
         authentication={authentication}
       >
         <DashboardLayout
+          sx={{
+            "& .ToolpadPageHeader-root": {
+              display: "none",
+            },
+          }}
           slots={{
             toolbarActions: ToolBarItems,
+            pageHeader: () => null,
           }}
           defaultSidebarCollapsed
           disableCollapsibleSidebar /*Comente para ativar a barra lateral colapsável*/
@@ -178,8 +184,17 @@ export default function App() {
           }} //Render de cada item presente no menu lateral;
         >
           <PageContainer maxWidth="false">
-            {/*Responsável pela exibição das páginas dentro da aplicaçao;*/}
-            <Outlet />
+            {/*Responsável pela exibição das páginas dentro da aplicação;*/}
+            <Paper
+              elevation={3}
+              sx={{
+                padding: 2,
+                borderRadius: 2,
+                backgroundColor: theme.palette.background.whiteCard,
+              }}
+            >
+              <Outlet />
+            </Paper>
           </PageContainer>
         </DashboardLayout>
       </AppProvider>
