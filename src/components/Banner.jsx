@@ -1,14 +1,16 @@
 import { Box, Typography } from "@mui/material";
 import BannerIcon from "../styles/LOGO/BannerIcon.png";
 import WavingHandOutlinedIcon from "@mui/icons-material/WavingHandOutlined";
+import BannerBackground from "../styles/LOGO/Banner2.png";
 
 const bannerStyles = {
   position: "relative",
   width: "100%",
-  height: "35vh",
-  background: "#000000",
-  background:
-    "linear-gradient(60deg,rgba(0, 0, 0, 1) 0%, rgba(0, 78, 146, 1) 30%, rgb(240, 240, 240) 62%, rgba(0, 178, 235, 1) 100%);",
+  height: "40vh",
+  backgroundImage: `url(${BannerBackground})`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
   borderRadius: "15px",
   marginBottom: "3rem",
   color: "white",
@@ -53,18 +55,7 @@ export default function Banner() {
       </Box>
       <Box
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
-      >
-        <Box
-          component="img"
-          src={BannerIcon}
-          sx={{
-            opacity: 0.45,
-            maxWidth: "42rem",
-            position: "absolute",
-            marginLeft: "6rem",
-          }}
-        ></Box>
-      </Box>
+      ></Box>
     </Box>
   );
 }

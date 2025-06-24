@@ -22,22 +22,6 @@ export default function ExamplePage() {
           padding: "10px",
         }}
       >
-        <Box
-          sx={{
-            width: "100%",
-            height: "30vh",
-            backgroundColor: theme.palette.background.socialCard,
-            borderRadius: "15px",
-            marginBottom: "10rem",
-            display: { xs: "none", md: "grid" },
-          }}
-        >
-          <img
-            src="src/styles/LOGO/Banner1.png"
-            alt=""
-            style={{ width: "100%", borderRadius: "15px" }}
-          />
-        </Box>
         <Banner />
         <Box sx={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
           <OriginContainer />
