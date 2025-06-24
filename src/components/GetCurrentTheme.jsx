@@ -19,6 +19,18 @@ const getThemeFunction = (mode) => ({
         }
       `,
     },
+
+    MuiListItemButton: {
+      // Muda cor dos botões da barra lateral;
+      styleOverrides: {
+        root: {
+          "&.Mui-selected, &.Mui-selected:hover": {
+            backgroundColor: mode === "light" ? "" : "",
+            color: mode === "light" ? "#fff" : "#000",
+          },
+        },
+      },
+    },
   },
 
   cssVariables: {
@@ -39,8 +51,8 @@ const getThemeFunction = (mode) => ({
   palette: {
     mode,
     background: {
-      default: mode === "light" ? "#FFFFFF" : "#121212",
-      paper: mode === "light" ? "#FFFFFF" : "#121212",
+      default: mode === "light" ? "#FFFFFF" : "#121212", // Muda cor da interface geral;
+      paper: mode === "light" ? "#FFFFFF" : "#121212", // Muda cor da interface geral;
       socialCard: mode === "light" ? "#DFE3E8" : "#2C2C2C",
       channelCard: mode === "light" ? "#164BF7" : "#164BF7",
       greyCard: mode === "light" ? "#DBDBDB" : "#2C2C2C",
