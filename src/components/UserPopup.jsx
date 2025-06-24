@@ -9,7 +9,7 @@ import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 
-function LogoutButton() {
+function LogoutButton({ background, font }) {
   const navigate = useNavigate();
   const handleLogout = () => {
     navigate("/login");
@@ -18,7 +18,13 @@ function LogoutButton() {
   return (
     <Button
       variant="contained"
-      sx={{ width: "280px", height: "50px", textTransform: "none" }}
+      sx={{
+        width: "280px",
+        height: "50px",
+        textTransform: "none",
+        backgroundColor: background,
+        color: font,
+      }}
       startIcon={<ExitToAppIcon />}
       onClick={handleLogout}
     >
@@ -76,7 +82,10 @@ export function UserPopup() {
         <CommonButton text="Modificar Perfil" Icon={PersonIcon} theme={theme} />
         <CommonButton text="Financeiro" Icon={AttachMoneyIcon} theme={theme} />
         <CommonButton text="Configurações" Icon={SettingsIcon} theme={theme} />
-        <LogoutButton />
+        <LogoutButton
+          background={theme.palette.background.blueCard}
+          font={theme.palette.font.alternative}
+        />
       </Box>
     </div>
   );

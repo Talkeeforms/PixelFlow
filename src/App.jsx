@@ -12,6 +12,7 @@ import { Account, PageContainer } from "@toolpad/core";
 import { Outlet } from "react-router-dom";
 import { useRouter } from "./Router";
 import { getTheme } from "./components/GetCurrentTheme";
+import "./routes/default.css";
 
 //Icons
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -23,8 +24,8 @@ import GroupIcon from "@mui/icons-material/Group";
 import ChatIcon from "@mui/icons-material/Chat";
 
 //Logos
-import lightLogo from "./assets/logo.png";
-import darkLogo from "./assets/logoBlack.png";
+import lightLogo from "./styles/LOGO/Logo1.png";
+import darkLogo from "./styles/LOGO/Logo2.png";
 
 //Variável responsável pelo armazém das páginas do menu lateral, incluindo ícone e link;
 const navigate = [
@@ -151,10 +152,19 @@ export default function App() {
               }}
             >
               <img
-                style={{ width: "auto", height: "auto", minHeight: "75px" }}
+                style={{ width: "auto", height: "auto", maxHeight: "30px" }}
                 src={currentLogo}
               ></img>
-              <Chip size="small" label="BETA" color="info" />
+              <Chip
+                size="small"
+                label="BETA"
+                sx={{
+                  backgroundColor: theme.palette.background.channelCard,
+                  color: theme.palette.font.alternative,
+                  fontFamily: "Arial",
+                  fontWeight: "600",
+                }}
+              />
             </div>
           ),
           title: " ",
@@ -166,7 +176,7 @@ export default function App() {
       >
         <DashboardLayout
           sx={{
-            "& .ToolpadPageHeader-root": {
+            "& .css-48g8qv-MuiTypography-root-MuiBreadcrumbs-root": {
               display: "none",
             },
           }}
@@ -175,7 +185,7 @@ export default function App() {
             pageHeader: () => null,
           }}
           defaultSidebarCollapsed
-          disableCollapsibleSidebar /*Comente para ativar a barra lateral colapsável*/
+          //disableCollapsibleSidebar /*Comente para ativar a barra lateral colapsável*/
           renderPageItem={(entry, { defaultRender }) => {
             if (entry.kind && entry.kind !== "item") {
               return defaultRender();
@@ -189,7 +199,7 @@ export default function App() {
               elevation={theme.palette.paper.default}
               sx={{
                 padding: 2,
-                borderRadius: 2,
+                borderRadius: "15px",
               }}
             >
               <Outlet />
