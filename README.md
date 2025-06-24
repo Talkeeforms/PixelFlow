@@ -4,7 +4,7 @@ Siga esses passos:
 
 ```sh
 # Passo 1: Faça o git clone desse repositório
-git clone https://github.com/Talkeeforms/PixelFlow
+git clone https://github.com/Talkeeforms/PixelFlow.git
 
 # Passo 2: Navegue até o diretório
 
