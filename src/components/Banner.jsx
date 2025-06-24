@@ -6,7 +6,7 @@ import BannerBackground from "../styles/LOGO/Banner2.png";
 const bannerStyles = {
   position: "relative",
   width: "100%",
-  height: "40vh",
+  height: "42vh",
   backgroundImage: `url(${BannerBackground})`,
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",

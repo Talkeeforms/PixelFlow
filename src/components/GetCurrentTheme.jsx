@@ -39,7 +39,7 @@ const getThemeFunction = (mode) => ({
     background: {
       default: mode === "light" ? "#FFFFFF" : "#121212",
       socialCard: mode === "light" ? "#DFE3E8" : "#2C2C2C",
-      channelCard: mode === "light" ? "#164BF7" : "#2C2C2C",
+      channelCard: mode === "light" ? "#164BF7" : "#164BF7",
       greyCard: mode === "light" ? "#DBDBDB" : "#2C2C2C",
       whiteCard: mode === "light" ? "#FFFFFF" : "#648293",
       popupCard: mode === "light" ? "#E3EEFA" : "#2C2C2C",
