@@ -4,9 +4,8 @@ import {
   ThemeSwitcher,
   DashboardSidebarPageItem,
 } from "@toolpad/core/DashboardLayout";
-import { Chip, Paper } from "@mui/material";
-import { useEffect, useMemo } from "react";
-import { useState } from "react";
+import { Chip, Paper, Box } from "@mui/material";
+import React, { useEffect, useMemo, useState } from "react";
 import { UserPopup } from "./components/UserPopup";
 import { Account, PageContainer } from "@toolpad/core";
 import { Outlet } from "react-router-dom";
@@ -143,7 +142,7 @@ export default function App() {
         branding={{
           //Parâmetro de configuração do logotipo na barra superior;
           logo: (
-            <div
+            <Box
               style={{
                 display: "flex",
                 justifyContent: "center",
@@ -165,7 +164,7 @@ export default function App() {
                   fontWeight: "600",
                 }}
               />
-            </div>
+            </Box>
           ),
           title: " ",
         }}
