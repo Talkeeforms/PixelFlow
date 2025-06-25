@@ -49,28 +49,47 @@ export default function SocialCard({ variant }) {
       <Box
         sx={{
           width: "100%",
-          height: "12vh",
+          height: { md: "12vh", xs: "8vh" },
           backgroundColor: theme.palette.background.socialCard,
           borderRadius: "15px",
           display: "grid",
-          gridTemplateColumns: "1fr 2fr 0.5fr",
+          gridTemplateColumns: { md: "1fr 2fr 0.5fr", xs: "4fr 1fr" },
           justifyContent: "center",
           alignItems: "center",
-          paddingLeft: "40px",
-          paddingRight: "30px",
+          paddingLeft: { md: "40px", xs: "20px" },
+          paddingRight: { md: "30px", xs: "20px" },
         }}
       >
-        <img src={buttonVariant.icon} alt="" />
-        <Typography variant="h6" fontWeight="500" fontFamily="Arial">
+        <Box
+          component="img"
+          sx={{
+            width: "100%",
+            height: "auto",
+            maxWidth: { md: "40px", xs: "35px" },
+            display: "block",
+          }}
+          src={buttonVariant.icon}
+          alt=""
+        />
+        <Typography
+          fontWeight="500"
+          fontFamily="Arial"
+          sx={{
+            typography: "h6",
+            display: { md: "flex", xs: "none" },
+          }}
+        >
           {buttonVariant.name}
         </Typography>
         <Typography
-          variant="h3"
-          fontWeight="500"
-          color="#164BF7"
-          fontFamily="Poppins"
+          fontWeight="700"
+          fontFamily="KumbhSans"
+          sx={{
+            typography: { md: "h3", xs: "h6" },
+            color: theme.palette.font.socialCard,
+          }}
         >
-          X
+          0
         </Typography>
       </Box>
     </Paper>

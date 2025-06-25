@@ -10,7 +10,7 @@ export default function OriginContainer() {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: { md: "1fr 1fr 1fr 1fr", xs: "1fr" },
+          gridTemplateColumns: { md: "1fr 1fr 1fr 1fr", xs: "1fr 1fr" },
           gap: "15px",
         }}
       >

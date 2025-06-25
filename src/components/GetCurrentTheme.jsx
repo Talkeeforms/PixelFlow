@@ -1,21 +1,61 @@
 import { createTheme, Typography } from "@mui/material";
-import KumbhSans from "../styles/KUMBH SANS/KumbhSans-Light.ttf";
+import KumbhSans from "../styles/KUMBH SANS/KumbhSans-Regular.ttf";
+import KumbhSansExtraLight from "../styles/KUMBH SANS/KumbhSans-Light.ttf";
+import KumbhSansBold from "../styles/KUMBH SANS/KumbhSans-Bold.ttf";
+import BlauerNue from "../styles/BLAUER FONT/BlauerNue-Light.ttf";
 
 //Função responsável pelas definições entre temas;
 const getThemeFunction = (mode) => ({
   typography: {
     fontFamily: "KumbhSans",
+    fontWeight: 700,
+  },
+
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    }, //Define os breakpoints da responsividade (Padrão: xs -> mobile, md -> desktop);
   },
 
   components: {
+    MuiContainer: {
+      defaultProps: {
+        disableGutters: false,
+      },
+      styleOverrides: {
+        root: ({ theme }) => ({
+          paddingRight: 0,
+          paddingLeft: 0,
+          [theme.breakpoints.up("md")]: {
+            paddingLeft: theme.spacing(4),
+          },
+        }),
+      },
+    },
     MuiCssBaseline: {
       styleOverrides: `@font-face {
-          font-family: "KumbhSans";
-          font-style: normal;
-          font-display: swap;
+            font-family: "KumbhSans";
+            font-weight: 300;
+            src: url(${KumbhSansExtraLight}) format("truetype");
+          }
+          @font-face {
+            font-family: "KumbhSans";
+            font-weight: 400;
+            src: url(${KumbhSans}) format("truetype");
+          }
+          @font-face {
+            font-family: "KumbhSans";
+            font-weight: 700;
+            src: url(${KumbhSansBold}) format("truetype");
+          }
+      @font-face {
+          font-family: "BlauerNue";
           font-weight: 400;
-          src: local('KumbhSans'), local('KumbhSans-Regular'), url(${KumbhSans}) format('truetype');
-          unicodeRange: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF;
+          src: local('BlauerNue'), local('BlauerNue-Regular'), url(${BlauerNue}) format('truetype');
         }
       `,
     },
@@ -39,15 +79,6 @@ const getThemeFunction = (mode) => ({
 
   colorSchemes: { light: true, dark: true }, //Habilita os temas;
 
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 600,
-      lg: 1200,
-      xl: 1536,
-    }, //Define os breakpoints da responsividade (Padrão: xs -> mobile, md -> desktop);
-  },
   palette: {
     mode,
     background: {
@@ -65,6 +96,7 @@ const getThemeFunction = (mode) => ({
     font: {
       default: mode === "light" ? "#121212" : "#FFFFFF",
       alternative: mode === "light" ? "#FFFFFF" : "#121212",
+      socialCard: mode === "light" ? "#164BF7" : "#FFFFFF",
     },
   }, //Armazena variáveis para esquematização de cor de acordo com o tema;
 });

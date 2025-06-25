@@ -3,28 +3,29 @@ import { useTheme } from "@mui/material/styles";
 
 import googleIcon from "../styles/ÍCONES/google2.png";
 import whatsappIcon from "../styles/ÍCONES/whatsapp2.png";
+import reportsIcon from "../styles/ÍCONES/forms.png";
 
 const variants = [
-  {
-    name: "Facebook",
-    icon: googleIcon,
-  },
   {
     name: "Google",
     icon: googleIcon,
   },
   {
-    name: "Whatsapp",
+    name: "WhatsApp",
     icon: whatsappIcon,
+  },
+  {
+    name: "Relatórios",
+    icon: reportsIcon,
   },
 ];
 
 const variantSelect = (variant) => {
-  if (variant === "facebook") {
+  if (variant === "google") {
     return variants[0];
-  } else if (variant === "google") {
-    return variants[1];
   } else if (variant === "whatsapp") {
+    return variants[1];
+  } else if (variant === "reports") {
     return variants[2];
   } else {
     return null;
@@ -47,33 +48,49 @@ export default function ChannelCard({ variant }) {
       <Box
         sx={{
           width: "100%",
-          height: "12vh",
+          height: { md: "12vh", xs: "8vh" },
           backgroundColor: theme.palette.background.channelCard,
           borderRadius: "15px",
           display: "grid",
-          gridTemplateColumns: "1fr 2fr 0.5fr",
+          gridTemplateColumns: "1fr 3fr 0.8fr",
           justifyContent: "center",
           alignItems: "center",
           paddingLeft: "40px",
           paddingRight: "30px",
         }}
       >
-        <img src={buttonVariant.icon} alt="" />
+        <Box
+          component="img"
+          sx={{
+            width: "100%",
+            height: "auto",
+            maxWidth: { md: "40px", xs: "35px" },
+            display: "block",
+          }}
+          src={buttonVariant.icon}
+          alt=""
+        />
         <Typography
-          variant="h6"
           fontWeight="500"
-          fontFamily="Arial"
+          fontFamily="KumbhSans"
           color="#FFFFFF"
+          sx={{
+            typography: { md: "h6", xs: "p" },
+          }}
         >
           {buttonVariant.name}
         </Typography>
         <Typography
-          variant="h3"
           fontWeight="500"
           color="#FFFFFF"
-          fontFamily="Poppins"
+          fontFamily="KumbhSans"
+          sx={{
+            typography: { md: "h3", xs: "h5" },
+            justifySelf: "end",
+            alignSelf: "center",
+          }}
         >
-          X
+          0
         </Typography>
       </Box>
     </Paper>

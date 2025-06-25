@@ -4,7 +4,7 @@ import {
   ThemeSwitcher,
   DashboardSidebarPageItem,
 } from "@toolpad/core/DashboardLayout";
-import { Chip, Paper, Box } from "@mui/material";
+import { Chip, Paper, Box, useMediaQuery } from "@mui/material";
 import React, { useEffect, useMemo, useState } from "react";
 import { UserPopup } from "./components/UserPopup";
 import { Account, PageContainer } from "@toolpad/core";
@@ -106,6 +106,8 @@ export default function App() {
 
   const [currentLogo, setCurrentLogo] = useState(lightLogo); //Variável responsável pela troca do logotipo entre os temas;
 
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   useEffect(() => {
     const handleThemeChange = () => {
       const newTheme = document.documentElement.getAttribute(
@@ -160,8 +162,12 @@ export default function App() {
                 sx={{
                   backgroundColor: theme.palette.background.channelCard,
                   color: theme.palette.font.alternative,
-                  fontFamily: "Arial",
-                  fontWeight: "600",
+                  fontFamily: "KumbhSans",
+                  fontWeight: "700",
+                  fontSize: "12px",
+                  display: "center",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
               />
             </Box>
@@ -175,8 +181,10 @@ export default function App() {
       >
         <DashboardLayout
           sx={{
-            "& .css-48g8qv-MuiTypography-root-MuiBreadcrumbs-root": {
-              display: "none",
+            "& .css-nv1n36-MuiTypography-root-MuiLink-root": {
+              fontFamily: "KumbhSans",
+              fontWeight: 700,
+              marginLeft: { xs: "27px" },
             },
           }}
           slots={{
@@ -192,10 +200,17 @@ export default function App() {
             return <DashboardSidebarPageItem item={entry} />;
           }} //Render de cada item presente no menu lateral;
         >
-          <PageContainer maxWidth="false">
+          <PageContainer
+            maxWidth="false"
+            slotProps={{
+              header: {
+                title: "", // Título das páginas;
+              },
+            }}
+          >
             {/*Responsável pela exibição das páginas dentro da aplicação;*/}
             <Paper
-              elevation={theme.palette.paper.default}
+              elevation={isMobile ? 0 : 3}
               sx={{
                 padding: 2,
                 borderRadius: "15px",

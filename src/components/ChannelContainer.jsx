@@ -14,9 +14,9 @@ export default function ChannelContainer() {
           gap: "15px",
         }}
       >
-        <ChannelCard variant={"facebook"} />
-        <ChannelCard variant={"whatsapp"} />
         <ChannelCard variant={"google"} />
+        <ChannelCard variant={"whatsapp"} />
+        <ChannelCard variant={"reports"} />
       </Box>
     </Box>
   );

@@ -1,12 +1,12 @@
 import { Box, Typography } from "@mui/material";
-import BannerIcon from "../styles/LOGO/BannerIcon.png";
 import WavingHandOutlinedIcon from "@mui/icons-material/WavingHandOutlined";
 import BannerBackground from "../styles/LOGO/Banner2.png";
+import { getTheme } from "./GetCurrentTheme";
 
 const bannerStyles = {
   position: "relative",
   width: "100%",
-  height: "42vh",
+  height: { md: "42vh", xs: "12vh" },
   backgroundImage: `url(${BannerBackground})`,
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
@@ -15,12 +15,13 @@ const bannerStyles = {
   marginBottom: "3rem",
   color: "white",
   fontFamily: "'Segoe UI', sans-serif",
-  display: { md: "grid", xs: "none" },
-  gridTemplateColumns: "1fr 1fr",
+  display: "grid",
+  gridTemplateColumns: "2fr 1fr",
   overflow: "hidden",
 };
 
 export default function Banner() {
+  const theme = getTheme("light");
   return (
     <Box sx={bannerStyles}>
       <Box
@@ -29,27 +30,39 @@ export default function Banner() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "start",
-          marginLeft: "5rem",
-          gap: "0.8rem",
+          marginLeft: { md: "5rem", xs: "1rem" },
+          gap: { md: "0.8rem", xs: "0rem" },
         }}
       >
         <Typography
-          variant="h3"
           component="h1"
-          fontWeight="500"
-          fontFamily="sans-serif"
+          fontWeight="700"
+          fontFamily="KumbhSans"
+          sx={{
+            typography: { md: "h3", xs: "h7" },
+          }}
         >
-          Oi, admin! <WavingHandOutlinedIcon fontSize="large" />
+          Oi, Thiago!{" "}
+          <WavingHandOutlinedIcon
+            sx={{ fontSize: { md: "40px", xs: "0px" } }}
+          />
         </Typography>
         <Typography
-          variant="h5"
-          component="h2"
-          fontWeight="400"
-          fontFamily="sans-serif"
+          fontWeight="200"
+          sx={{
+            typography: { md: "h5", xs: "p" },
+            fontFamily: "KumbhSans",
+          }}
         >
           Empresa: Pixelflow
         </Typography>
-        <Typography variant="h7">
+        <Typography
+          variant="h7"
+          sx={{
+            display: { md: "grid", xs: "none" },
+            fontFamily: "KumbhSans",
+          }}
+        >
           O sucesso é a soma de pequenos esforços divididos dia após dia.
         </Typography>
       </Box>
