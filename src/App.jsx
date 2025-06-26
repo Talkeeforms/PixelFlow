@@ -184,7 +184,8 @@ export default function App() {
             "& .css-nv1n36-MuiTypography-root-MuiLink-root": {
               fontFamily: "KumbhSans",
               fontWeight: 700,
-              marginLeft: { xs: "27px" },
+              marginLeft: { md: 0, xs: "27px" },
+              opacity: 0.4,
             },
           }}
           slots={{

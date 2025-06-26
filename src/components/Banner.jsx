@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import WavingHandOutlinedIcon from "@mui/icons-material/WavingHandOutlined";
+import handIcon from "../styles/ÍCONES/Banner/hand.png";
 import BannerBackground from "../styles/LOGO/Banner2.png";
 import { getTheme } from "./GetCurrentTheme";
 
@@ -43,8 +43,15 @@ export default function Banner() {
           }}
         >
           Oi, Thiago!{" "}
-          <WavingHandOutlinedIcon
-            sx={{ fontSize: { md: "40px", xs: "0px" } }}
+          <Box
+            component="img"
+            sx={{
+              width: "100%",
+              height: "auto",
+              maxWidth: { md: "45px", xs: "25px" },
+            }}
+            src={handIcon}
+            alt=""
           />
         </Typography>
         <Typography

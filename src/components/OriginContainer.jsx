@@ -17,7 +17,7 @@ export default function OriginContainer() {
         <SocialCard variant={"facebook"} />
         <SocialCard variant={"whatsapp"} />
         <SocialCard variant={"google"} />
-        <SocialCard variant={"facebook"} />
+        <SocialCard variant={"outros"} />
       </Box>
     </Box>
   );

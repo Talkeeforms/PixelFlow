@@ -6,6 +6,11 @@ import "./default.css";
 import Banner from "../components/Banner";
 import OriginContainer from "../components/OriginContainer";
 import ChannelContainer from "../components/ChannelContainer";
+import TermometerContainer from "../components/TermometerContainer";
+import DevicesContainer from "../components/DevicesContainer";
+
+import { Devices } from "@mui/icons-material";
+import SellsContainer from "../components/SellsContainer";
 
 export default function ExamplePage() {
   const theme = useTheme("light");
@@ -26,6 +31,9 @@ export default function ExamplePage() {
         <Box sx={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
           <OriginContainer />
           <ChannelContainer />
+          <TermometerContainer />
+          <DevicesContainer />
+          {/*<SellsContainer />*/}
         </Box>
       </div>
     </>

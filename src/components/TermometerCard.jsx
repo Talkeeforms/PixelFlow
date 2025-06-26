@@ -1,44 +1,48 @@
 import { Box, Typography, Paper } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import facebookIcon from "../styles/ÍCONES/Social/facebook.png";
-import googleIcon from "../styles/ÍCONES/Social/google.svg";
-import whatsappIcon from "../styles/ÍCONES/Social/whatsapp.svg";
-import outrosIcon from "../styles/ÍCONES/Social/outros.png";
+import hotIcon from "../styles/ÍCONES/Termometer/hot.svg";
+import warmIcon from "../styles/ÍCONES/Termometer/warm.svg";
+import coldIcon from "../styles/ÍCONES/Termometer/cold.svg";
+import talkIcon from "../styles/ÍCONES/Termometer/chat.svg";
 
 const variants = [
   {
-    name: "Facebook",
-    icon: facebookIcon,
+    name: "Lead Quente",
+    icon: hotIcon,
+    color: "#E70B0B",
   },
   {
-    name: "Google",
-    icon: googleIcon,
+    name: "Lead Morno",
+    icon: warmIcon,
+    color: "#F49B15",
   },
   {
-    name: "Whatsapp",
-    icon: whatsappIcon,
+    name: "Lead Frio",
+    icon: coldIcon,
+    color: "#164BF7",
   },
   {
-    name: "",
-    icon: outrosIcon,
+    name: "Conversa Iniciada",
+    icon: talkIcon,
+    color: "#25AF3E",
   },
 ];
 
 const variantSelect = (variant) => {
-  if (variant === "facebook") {
+  if (variant === "hot") {
     return variants[0];
-  } else if (variant === "google") {
+  } else if (variant === "warm") {
     return variants[1];
-  } else if (variant === "whatsapp") {
+  } else if (variant === "cold") {
     return variants[2];
-  } else if (variant === "outros") {
+  } else if (variant === "talk") {
     return variants[3];
   } else {
     return null;
   }
 };
 
-export default function SocialCard({ variant }) {
+export default function TermometerCard({ variant }) {
   const theme = useTheme("light");
   const buttonVariant = variantSelect(variant);
   if (!buttonVariant) {
@@ -55,24 +59,21 @@ export default function SocialCard({ variant }) {
         sx={{
           width: "100%",
           height: { md: "12vh", xs: "8vh" },
-          backgroundColor: theme.palette.background.socialCard,
+          backgroundColor: buttonVariant.color,
           borderRadius: "15px",
           display: "grid",
-          gridTemplateColumns: { md: "1fr 2fr 0.5fr", xs: "4fr 1fr" },
+          gridTemplateColumns: "1fr 3fr 0.8fr",
           justifyContent: "center",
           alignItems: "center",
-          paddingLeft: { md: "40px", xs: "20px" },
-          paddingRight: { md: "30px", xs: "20px" },
+          paddingLeft: "30px",
+          paddingRight: "30px",
         }}
       >
         <Box
           component="img"
           sx={{
             height: "auto",
-            maxWidth:
-              variant === "outros"
-                ? { md: "90px", xs: "70px" }
-                : { md: "40px", xs: "35px" },
+            maxWidth: { md: "35px", xs: "25px" },
             display: "block",
           }}
           src={buttonVariant.icon}
@@ -80,21 +81,23 @@ export default function SocialCard({ variant }) {
         />
         <Typography
           fontWeight="500"
-          fontFamily="Arial"
+          fontFamily="KumbhSans"
+          color="#FFFFFF"
           sx={{
-            typography: "h6",
-            display: { md: "flex", xs: "none" },
+            typography: { md: "h6", xs: "p" },
           }}
         >
           {buttonVariant.name}
         </Typography>
         <Typography
+          color="#FFFFFF"
           fontFamily="KumbhSans"
           sx={{
-            typography: { md: "h3", xs: "h6" },
-            color: theme.palette.font.socialCard,
+            typography: { md: "h3", xs: "h5" },
             [theme.breakpoints.up("md")]: { fontWeight: 700, fontSize: "40px" },
             [theme.breakpoints.down("md")]: { fontWeight: 700 },
+            justifySelf: "end",
+            alignSelf: "center",
           }}
         >
           0

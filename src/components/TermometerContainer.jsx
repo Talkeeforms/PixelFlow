@@ -1,11 +1,11 @@
-import ChannelCard from "./ChannelCard";
+import TermometerCard from "./TermometerCard";
 import { Box, Typography } from "@mui/material";
 
-export default function ChannelContainer() {
+export default function TermometerContainer() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
       <Typography variant="h7" fontWeight="800">
-        Canais
+        Termômetro
       </Typography>
       <Box
         sx={{
@@ -14,10 +14,10 @@ export default function ChannelContainer() {
           gap: "15px",
         }}
       >
-        <ChannelCard variant={"whatsapp"} />
-        <ChannelCard variant={"reports"} />
-        <ChannelCard variant={"schedule"} />
-        <ChannelCard variant={"calls"} />
+        <TermometerCard variant={"hot"} />
+        <TermometerCard variant={"warm"} />
+        <TermometerCard variant={"cold"} />
+        <TermometerCard variant={"talk"} />
       </Box>
     </Box>
   );

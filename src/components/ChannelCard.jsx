@@ -1,15 +1,11 @@
 import { Box, Typography, Paper } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-
-import googleIcon from "../styles/ÍCONES/google2.png";
-import whatsappIcon from "../styles/ÍCONES/whatsapp2.png";
-import reportsIcon from "../styles/ÍCONES/forms.png";
+import whatsappIcon from "../styles/ÍCONES/Channel/whatsapp2.svg";
+import reportsIcon from "../styles/ÍCONES/Channel/forms.png";
+import phoneIcon from "../styles/ÍCONES/Channel/call.svg";
+import scheduleIcon from "../styles/ÍCONES/Channel/calendar.svg";
 
 const variants = [
-  {
-    name: "Google",
-    icon: googleIcon,
-  },
   {
     name: "WhatsApp",
     icon: whatsappIcon,
@@ -18,15 +14,25 @@ const variants = [
     name: "Relatórios",
     icon: reportsIcon,
   },
+  {
+    name: "Agendamentos",
+    icon: scheduleIcon,
+  },
+  {
+    name: "Ligações",
+    icon: phoneIcon,
+  },
 ];
 
 const variantSelect = (variant) => {
-  if (variant === "google") {
+  if (variant === "whatsapp") {
     return variants[0];
-  } else if (variant === "whatsapp") {
-    return variants[1];
   } else if (variant === "reports") {
+    return variants[1];
+  } else if (variant === "schedule") {
     return variants[2];
+  } else if (variant === "calls") {
+    return variants[3];
   } else {
     return null;
   }
@@ -55,7 +61,7 @@ export default function ChannelCard({ variant }) {
           gridTemplateColumns: "1fr 3fr 0.8fr",
           justifyContent: "center",
           alignItems: "center",
-          paddingLeft: "40px",
+          paddingLeft: "30px",
           paddingRight: "30px",
         }}
       >
@@ -64,7 +70,7 @@ export default function ChannelCard({ variant }) {
           sx={{
             width: "100%",
             height: "auto",
-            maxWidth: { md: "40px", xs: "35px" },
+            maxWidth: { md: "35px", xs: "25px" },
             display: "block",
           }}
           src={buttonVariant.icon}
@@ -81,11 +87,12 @@ export default function ChannelCard({ variant }) {
           {buttonVariant.name}
         </Typography>
         <Typography
-          fontWeight="500"
           color="#FFFFFF"
           fontFamily="KumbhSans"
           sx={{
             typography: { md: "h3", xs: "h5" },
+            [theme.breakpoints.up("md")]: { fontWeight: 700, fontSize: "40px" },
+            [theme.breakpoints.down("md")]: { fontWeight: 700 },
             justifySelf: "end",
             alignSelf: "center",
           }}
