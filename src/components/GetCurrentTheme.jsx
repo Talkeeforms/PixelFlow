@@ -90,6 +90,7 @@ const getThemeFunction = (mode) => ({
       greyCard: mode === "light" ? "#DBDBDB" : "#2C2C2C",
       whiteCard: mode === "light" ? "#FFFFFF" : "#648293",
       popupCard: mode === "light" ? "#E3EEFA" : "#2C2C2C",
+      kanban: mode === "light" ? "#f4f5f7" : "#2C2C2C",
     },
     paper: {
       default: mode === "light" ? 3 : 3,

@@ -3,8 +3,10 @@ import { Box, Typography, Paper } from "@mui/material";
 import { Droppable, Draggable } from "@hello-pangea/dnd";
 import TaskCard from "./TaskCard";
 import DragHandleIcon from "@mui/icons-material/DragHandle";
+import { useTheme } from "@mui/material";
 
 const Column = React.memo(({ column, tasks, index, isMobile }) => {
+  const theme = useTheme();
   return (
     <Draggable draggableId={column.id} index={index}>
       {(provided) => (
@@ -17,7 +19,7 @@ const Column = React.memo(({ column, tasks, index, isMobile }) => {
             margin: 1,
             width: isMobile ? "90vw" : 300,
             height: isMobile ? "none" : "75vh",
-            backgroundColor: "#f4f5f7",
+            backgroundColor: theme.palette.background.kanban,
           }}
         >
           <Typography
