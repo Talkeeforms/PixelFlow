@@ -1,6 +1,7 @@
 import SignIn from "./routes/SignIn";
 import App from "./App";
-import ExamplePage from "./routes/ExamplePage";
+import DashboardPage from "./routes/DashboardPage";
+import CRMPage from "./routes/CRMPage";
 import ExamplePage2 from "./routes/ExamplePage2";
 
 import { StrictMode } from "react";
@@ -19,12 +20,12 @@ const router = createBrowserRouter([
     children: [
       //Páginas internas da aplicação (Páginas do menu lateral);
       {
-        path: "example",
-        element: <ExamplePage />,
+        path: "dashboard",
+        element: <DashboardPage />,
       },
       {
-        path: "example2",
-        element: <ExamplePage2 />,
+        path: "crm",
+        element: <CRMPage />,
       },
     ],
   },

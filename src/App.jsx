@@ -29,7 +29,7 @@ import darkLogo from "./styles/LOGO/Logo2.png";
 //Variável responsável pelo armazém das páginas do menu lateral, incluindo ícone e link;
 const navigate = [
   {
-    segment: "example", //URL da página correspondente (Como definido em 'main.jsx');
+    segment: "dashboard", //URL da página correspondente (Como definido em 'main.jsx');
     title: "Dashboard", //Nome no menu lateral;
     icon: <DashboardIcon />, //Ícone no menu lateral;
   },

@@ -6,8 +6,13 @@ import { ChartsXAxis } from "@mui/x-charts/ChartsXAxis";
 import { ChartsYAxis } from "@mui/x-charts/ChartsYAxis";
 import { styled } from "@mui/material/styles";
 import { interpolateObject } from "@mui/x-charts-vendor/d3-interpolate";
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 export default function SellsChart() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <ChartContainer
       xAxis={[{ scaleType: "band", data: ["A", "B", "C", "D", "E"] }]}
@@ -18,12 +23,13 @@ export default function SellsChart() {
           data: [5, 17, 11, 5, 17, 11],
         },
       ]}
-      width={800}
-      height={500}
+      width={isMobile ? 300 : 800}
+      height={isMobile ? 200 : 500}
     >
       <BarPlot barLabel="value" slots={{ barLabel: BarLabel }} />
       <ChartsXAxis />
       <ChartsYAxis />
+      {console.log(isMobile)}
     </ChartContainer>
   );
 }

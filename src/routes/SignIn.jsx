@@ -23,7 +23,7 @@ export default function SignIn() {
   const navigate = useNavigate();
 
   const handleSignIn = () => {
-    navigate("/example");
+    navigate("/dashboard");
   };
 
   const TitleLogin = () => {

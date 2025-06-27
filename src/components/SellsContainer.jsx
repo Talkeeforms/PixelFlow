@@ -40,10 +40,8 @@ export default function SellsContainer() {
         <Box
           sx={{
             display: "grid",
-            width: "100%",
-            height: "100%",
             gridTemplateColumns: { md: "1fr 1fr", xs: "1fr" },
-            gridTemplateRows: { md: "1fr 1fr", xs: "1fr" },
+            gridTemplateRows: { md: "1fr", xs: "1fr" },
           }}
         >
           <SellsChart />

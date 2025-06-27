@@ -12,7 +12,7 @@ import DevicesContainer from "../components/DevicesContainer";
 import { Devices } from "@mui/icons-material";
 import SellsContainer from "../components/SellsContainer";
 
-export default function ExamplePage() {
+export default function DashboardPage() {
   const theme = useTheme("light");
   return (
     <>
@@ -33,7 +33,7 @@ export default function ExamplePage() {
           <ChannelContainer />
           <TermometerContainer />
           <DevicesContainer />
-          {/*<SellsContainer />*/}
+          <SellsContainer />
         </Box>
       </div>
     </>
