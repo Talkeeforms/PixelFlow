@@ -45,8 +45,7 @@ export default function AddColumn({ onAddColumn }) {
           alignItems: "center",
           justifyContent: "center",
           position: "relative",
-          bottom: { md: 0, xs: 16 },
-          right: { md: 0, xs: 16 },
+
           "&:hover": {
             backgroundColor: "inherit",
             boxShadow: "none",

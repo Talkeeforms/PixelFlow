@@ -117,6 +117,7 @@ export default function MainBoard() {
               {...provided.droppableProps}
               ref={provided.innerRef}
               sx={{
+                flex: 1,
                 display: "flex",
                 flexDirection: isMobile ? "column" : "row",
                 alignItems: isMobile ? "center" : "flex-start",
