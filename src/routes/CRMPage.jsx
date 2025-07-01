@@ -1,6 +1,5 @@
 import { Box } from "@mui/material";
-import Kanban from "../components/ex/Kanban";
-import MainBoard from "../components/MainBoard";
+import MainBoard from "../components/crm/MainBoard";
 
 export default function CRMPage() {
   return (

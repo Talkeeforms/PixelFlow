@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Box } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material";
 import { initialData } from "./initial-data";
 import Column from "./Column";
+import AddColumn from "./AddColumn";
 
 export default function MainBoard() {
   const [boardData, setBoardData] = useState(initialData);
@@ -85,6 +86,24 @@ export default function MainBoard() {
     setBoardData(newState);
   };
 
+  const handleAddColumn = (title = "Nova Coluna") => {
+    const newId = `column-${Date.now()}`;
+    const newColumn = {
+      id: newId,
+      title,
+      taskIds: [],
+    };
+
+    setBoardData((prev) => ({
+      ...prev,
+      columns: {
+        ...prev.columns,
+        [newId]: newColumn,
+      },
+      columnOrder: [...prev.columnOrder, newId],
+    }));
+  };
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable
@@ -93,35 +112,45 @@ export default function MainBoard() {
         type="COLUMN"
       >
         {(provided) => (
-          <Box
-            {...provided.droppableProps}
-            ref={provided.innerRef}
-            sx={{
-              display: "flex",
-              flexDirection: isMobile ? "column" : "row",
-              alignItems: isMobile ? "center" : "flex-start",
-              justifyContent: "center",
-              padding: 2,
-              overflowX: isMobile ? "hidden" : "auto",
-              overflowY: isMobile ? "auto" : "hidden",
-            }}
-          >
-            {boardData.columnOrder.map((columnId, index) => {
-              const column = boardData.columns[columnId];
-              const tasks = column.taskIds.map(
-                (taskId) => boardData.tasks[taskId]
-              );
-              return (
-                <Column
-                  key={column.id}
-                  column={column}
-                  tasks={tasks}
-                  index={index}
-                  isMobile={isMobile}
-                />
-              );
-            })}
-            {provided.placeholder}
+          <Box>
+            <Box
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+              sx={{
+                display: "flex",
+                flexDirection: isMobile ? "column" : "row",
+                alignItems: isMobile ? "center" : "flex-start",
+                padding: 2,
+                overflowX: isMobile ? "hidden" : "auto",
+                overflowY: isMobile ? "auto" : "hidden",
+              }}
+            >
+              {boardData.columnOrder.map((columnId, index) => {
+                const column = boardData.columns[columnId];
+                const tasks = column.taskIds.map(
+                  (taskId) => boardData.tasks[taskId]
+                );
+                return (
+                  <Column
+                    key={column.id}
+                    column={column}
+                    tasks={tasks}
+                    index={index}
+                    isMobile={isMobile}
+                  />
+                );
+              })}
+              {provided.placeholder}
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <AddColumn onAddColumn={handleAddColumn} />
+              </Box>
+            </Box>
           </Box>
         )}
       </Droppable>

@@ -1,16 +1,14 @@
-import { LineChart } from "@mui/x-charts/LineChart";
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import "./default.css";
 
-import Banner from "../components/Banner";
-import OriginContainer from "../components/OriginContainer";
-import ChannelContainer from "../components/ChannelContainer";
-import TermometerContainer from "../components/TermometerContainer";
-import DevicesContainer from "../components/DevicesContainer";
+import Banner from "../components/dashboard/Banner";
+import OriginContainer from "../components/dashboard/origin/OriginContainer";
+import ChannelContainer from "../components/dashboard/channel/ChannelContainer";
+import TermometerContainer from "../components/dashboard/termometer/TermometerContainer";
+import DevicesContainer from "../components/dashboard/devices/DevicesContainer";
 
-import { Devices } from "@mui/icons-material";
-import SellsContainer from "../components/SellsContainer";
+import SellsContainer from "../components/dashboard/sells/SellsContainer";
 
 export default function DashboardPage() {
   const theme = useTheme("light");

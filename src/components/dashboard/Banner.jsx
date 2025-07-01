@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
-import handIcon from "../styles/ÍCONES/Banner/hand.png";
-import BannerBackground from "../styles/LOGO/Banner2.png";
-import { getTheme } from "./GetCurrentTheme";
+import handIcon from "@/styles/ÍCONES/Banner/hand.png";
+import BannerBackground from "@/styles/LOGO/Banner2.png";
+import { getTheme } from "../GetCurrentTheme";
 
 const bannerStyles = {
   position: "relative",

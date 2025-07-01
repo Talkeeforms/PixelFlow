@@ -1,4 +1,4 @@
-import SocialCard from "../components/SocialCard";
+import OriginCard from "./OriginCard";
 import { Box, Typography } from "@mui/material";
 
 export default function OriginContainer() {
@@ -14,10 +14,10 @@ export default function OriginContainer() {
           gap: "15px",
         }}
       >
-        <SocialCard variant={"facebook"} />
-        <SocialCard variant={"whatsapp"} />
-        <SocialCard variant={"google"} />
-        <SocialCard variant={"outros"} />
+        <OriginCard variant={"facebook"} />
+        <OriginCard variant={"whatsapp"} />
+        <OriginCard variant={"google"} />
+        <OriginCard variant={"outros"} />
       </Box>
     </Box>
   );

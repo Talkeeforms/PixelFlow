@@ -1,44 +1,44 @@
 import { Box, Typography, Paper } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import whatsappIcon from "../styles/ÍCONES/Channel/whatsapp2.svg";
-import reportsIcon from "../styles/ÍCONES/Channel/forms.png";
-import phoneIcon from "../styles/ÍCONES/Channel/call.svg";
-import scheduleIcon from "../styles/ÍCONES/Channel/calendar.svg";
+import facebookIcon from "@/styles/ÍCONES/Social/facebook.png";
+import googleIcon from "@/styles/ÍCONES/Social/google.svg";
+import whatsappIcon from "@/styles/ÍCONES/Social/whatsapp.svg";
+import outrosIcon from "@/styles/ÍCONES/Social/outros.png";
 
 const variants = [
   {
-    name: "WhatsApp",
+    name: "Facebook",
+    icon: facebookIcon,
+  },
+  {
+    name: "Google",
+    icon: googleIcon,
+  },
+  {
+    name: "Whatsapp",
     icon: whatsappIcon,
   },
   {
-    name: "Relatórios",
-    icon: reportsIcon,
-  },
-  {
-    name: "Agendamentos",
-    icon: scheduleIcon,
-  },
-  {
-    name: "Ligações",
-    icon: phoneIcon,
+    name: "",
+    icon: outrosIcon,
   },
 ];
 
 const variantSelect = (variant) => {
-  if (variant === "whatsapp") {
+  if (variant === "facebook") {
     return variants[0];
-  } else if (variant === "reports") {
+  } else if (variant === "google") {
     return variants[1];
-  } else if (variant === "schedule") {
+  } else if (variant === "whatsapp") {
     return variants[2];
-  } else if (variant === "calls") {
+  } else if (variant === "outros") {
     return variants[3];
   } else {
     return null;
   }
 };
 
-export default function ChannelCard({ variant }) {
+export default function OriginCard({ variant }) {
   const theme = useTheme("light");
   const buttonVariant = variantSelect(variant);
   if (!buttonVariant) {
@@ -55,22 +55,24 @@ export default function ChannelCard({ variant }) {
         sx={{
           width: "100%",
           height: { md: "12vh", xs: "8vh" },
-          backgroundColor: theme.palette.background.channelCard,
+          backgroundColor: theme.palette.background.socialCard,
           borderRadius: "15px",
           display: "grid",
-          gridTemplateColumns: "1fr 3fr 0.8fr",
+          gridTemplateColumns: { md: "1fr 2fr 0.5fr", xs: "4fr 1fr" },
           justifyContent: "center",
           alignItems: "center",
-          paddingLeft: "30px",
-          paddingRight: "30px",
+          paddingLeft: { md: "40px", xs: "20px" },
+          paddingRight: { md: "30px", xs: "20px" },
         }}
       >
         <Box
           component="img"
           sx={{
-            width: "100%",
             height: "auto",
-            maxWidth: { md: "35px", xs: "25px" },
+            maxWidth:
+              variant === "outros"
+                ? { md: "90px", xs: "70px" }
+                : { md: "40px", xs: "35px" },
             display: "block",
           }}
           src={buttonVariant.icon}
@@ -78,23 +80,21 @@ export default function ChannelCard({ variant }) {
         />
         <Typography
           fontWeight="500"
-          fontFamily="KumbhSans"
-          color="#FFFFFF"
+          fontFamily="Arial"
           sx={{
-            typography: { md: "h6", xs: "p" },
+            typography: "h6",
+            display: { md: "flex", xs: "none" },
           }}
         >
           {buttonVariant.name}
         </Typography>
         <Typography
-          color="#FFFFFF"
           fontFamily="KumbhSans"
           sx={{
-            typography: { md: "h3", xs: "h5" },
+            typography: { md: "h3", xs: "h6" },
+            color: theme.palette.font.socialCard,
             [theme.breakpoints.up("md")]: { fontWeight: 700, fontSize: "40px" },
             [theme.breakpoints.down("md")]: { fontWeight: 700 },
-            justifySelf: "end",
-            alignSelf: "center",
           }}
         >
           0

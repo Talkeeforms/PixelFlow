@@ -1,8 +1,8 @@
 import { Box, Typography, Paper } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import androidIcon from "../styles/ÍCONES/Devices/android.svg";
-import iosIcon from "../styles/ÍCONES/Devices/ios.svg";
-import webIcon from "../styles/ÍCONES/Devices/web.svg";
+import androidIcon from "@/styles/ÍCONES/Devices/android.svg";
+import iosIcon from "@/styles/ÍCONES/Devices/ios.svg";
+import webIcon from "@/styles/ÍCONES/Devices/web.svg";
 
 const variants = [
   {

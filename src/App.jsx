@@ -6,7 +6,7 @@ import {
 } from "@toolpad/core/DashboardLayout";
 import { Chip, Paper, Box, useMediaQuery } from "@mui/material";
 import React, { useEffect, useMemo, useState } from "react";
-import { UserPopup } from "./components/UserPopup";
+import { UserPopup } from "./components/topbar/UserPopup";
 import { Account, PageContainer } from "@toolpad/core";
 import { Outlet } from "react-router-dom";
 import { useRouter } from "./Router";

@@ -16,30 +16,42 @@ export const initialData = {
   columns: {
     "column-1": {
       id: "column-1",
-      title: "Lista 1",
+      title: "Novos Leads",
       taskIds: ["task-1", "task-2", "task-3"],
     },
     "column-2": {
       id: "column-2",
-      title: "Lista 2",
+      title: "Em Tratativa",
       taskIds: ["task-4"],
     },
     "column-3": {
       id: "column-3",
-      title: "Lista 3",
+      title: "Leads Estagnados",
       taskIds: ["task-5"],
     },
     "column-4": {
       id: "column-4",
-      title: "Lista 4",
+      title: "Agendados",
       taskIds: ["task-6"],
     },
     "column-5": {
       id: "column-5",
-      title: "Lista 5",
+      title: "Compareceram",
       taskIds: ["task-7", "task-8", "task-9", "task-10", "task-11", "task-12"],
+    },
+    "column-6": {
+      id: "column-6",
+      title: "Não Compareceram",
+      taskIds: [],
     },
   },
   // We use this to remember the order of the columns
-  columnOrder: ["column-1", "column-2", "column-3", "column-4", "column-5"],
+  columnOrder: [
+    "column-1",
+    "column-2",
+    "column-3",
+    "column-4",
+    "column-5",
+    "column-6",
+  ],
 };

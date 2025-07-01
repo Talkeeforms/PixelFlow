@@ -57,7 +57,6 @@ export default function SignIn() {
         fullWidth
         sx={{
           marginTop: "40px",
-          fontWeight: "800",
           fontWeight: 700,
           fontSize: 15,
           textTransform: "none",

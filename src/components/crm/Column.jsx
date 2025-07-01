@@ -16,10 +16,12 @@ const Column = React.memo(({ column, tasks, index, isMobile }) => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            margin: 1,
-            width: isMobile ? "90vw" : 300,
+            margin: 1.5,
+            width: isMobile ? "90vw" : 0,
+            minWidth: "20vw",
             height: isMobile ? "none" : "75vh",
             backgroundColor: theme.palette.background.kanban,
+            borderRadius: "15px",
           }}
         >
           <Typography
@@ -49,6 +51,7 @@ const Column = React.memo(({ column, tasks, index, isMobile }) => {
                     ? "skyblue"
                     : "inherit",
                   transition: "background-color 0.2s ease",
+                  borderRadius: "15px",
                 }}
               >
                 {tasks.map((task, taskIndex) => (
