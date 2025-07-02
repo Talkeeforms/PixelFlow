@@ -6,11 +6,12 @@ import {
 } from "@toolpad/core/DashboardLayout";
 import { Chip, Paper, Box, useMediaQuery } from "@mui/material";
 import React, { useEffect, useMemo, useState } from "react";
-import { UserPopup } from "./components/topbar/UserPopup";
 import { Account, PageContainer } from "@toolpad/core";
 import { Outlet } from "react-router-dom";
 import { useRouter } from "./Router";
 import { getTheme } from "./components/GetCurrentTheme";
+import TopBar from "./components/topbar/TopBar";
+import BottomBar from "./components/bottombar/BottomBar";
 import "./routes/default.css";
 
 //Icons
@@ -21,10 +22,6 @@ import TimelineIcon from "@mui/icons-material/Timeline";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import GroupIcon from "@mui/icons-material/Group";
 import ChatIcon from "@mui/icons-material/Chat";
-
-//Logos
-import lightLogo from "./styles/LOGO/Logo1.png";
-import darkLogo from "./styles/LOGO/Logo2.png";
 
 //Variável responsável pelo armazém das páginas do menu lateral, incluindo ícone e link;
 const navigate = [
@@ -81,20 +78,6 @@ const user = {
   },
 };
 
-//Função responsável pelos componentes da barra superior da aplicação;
-function ToolBarItems() {
-  return (
-    <>
-      <ThemeSwitcher /> {/*Botão para troca de tema (Escuro, Claro);*/}
-      <Account
-        slots={{
-          popoverContent: UserPopup,
-        }}
-      />
-    </>
-  );
-}
-
 export default function App() {
   const [currentTheme, setCurrentTheme] = useState(
     document.documentElement.getAttribute("data-toolpad-color-scheme")
@@ -104,8 +87,6 @@ export default function App() {
 
   const router = useRouter(); //Variável responsável por armazenar o gerenciador de Rotas (Título da página atual, ex: "Dashboard", "Filas");
 
-  const [currentLogo, setCurrentLogo] = useState(lightLogo); //Variável responsável pela troca do logotipo entre os temas;
-
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   useEffect(() => {
@@ -114,7 +95,6 @@ export default function App() {
         "data-toolpad-color-scheme"
       );
       setCurrentTheme(newTheme);
-      setCurrentLogo(newTheme === "light" ? lightLogo : darkLogo);
     }; //Função responsável pela atualização da variável de tema atual, e da troca de logotipo;
 
     const observer = new MutationObserver(handleThemeChange);
@@ -124,7 +104,7 @@ export default function App() {
     });
 
     return () => observer.disconnect();
-  }, []); //Função responsável por atualizações em tempo de execução da aplicação;
+  }, []);
 
   const authentication = useMemo(() => {
     return {
@@ -141,39 +121,6 @@ export default function App() {
     <>
       <AppProvider
         navigation={navigate} //Parâmetro de navegação do menu lateral;
-        branding={{
-          //Parâmetro de configuração do logotipo na barra superior;
-          logo: (
-            <Box
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "10px",
-              }}
-            >
-              <img
-                style={{ width: "auto", height: "auto", maxHeight: "30px" }}
-                src={currentLogo}
-              ></img>
-              <Chip
-                size="small"
-                label="BETA"
-                sx={{
-                  backgroundColor: theme.palette.background.channelCard,
-                  color: theme.palette.font.alternative,
-                  fontFamily: "KumbhSans",
-                  fontWeight: "700",
-                  fontSize: "12px",
-                  display: "center",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              />
-            </Box>
-          ),
-          title: " ",
-        }}
         theme={theme}
         router={router}
         session={user}
@@ -187,13 +134,16 @@ export default function App() {
               marginLeft: { md: 0, xs: "27px" },
               opacity: 0.4,
             },
+            "& .MuiToolbar-root": {
+              display: "none",
+            },
           }}
           slots={{
-            toolbarActions: ToolBarItems,
-            pageHeader: () => null,
+            header: TopBar,
           }}
           defaultSidebarCollapsed
           //disableCollapsibleSidebar /*Comente para ativar a barra lateral colapsável*/
+          hideNavigation={isMobile ? true : false}
           renderPageItem={(entry, { defaultRender }) => {
             if (entry.kind && entry.kind !== "item") {
               return defaultRender();
@@ -208,6 +158,9 @@ export default function App() {
                 title: "", // Título das páginas;
               },
             }}
+            sx={{
+              pt: { xs: 7, md: 8 }, // <-- same idea here
+            }}
           >
             {/*Responsável pela exibição das páginas dentro da aplicação;*/}
             <Paper
@@ -219,6 +172,7 @@ export default function App() {
             >
               <Outlet />
             </Paper>
+            <BottomBar isMobile={isMobile} />
           </PageContainer>
         </DashboardLayout>
       </AppProvider>
