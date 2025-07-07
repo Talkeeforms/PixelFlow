@@ -59,7 +59,7 @@ export default function TopBar() {
       <Box
         style={{
           display: "flex",
-          justifyContent: { md: "flex-start", xs: "center" },
+          justifyContent: isMobile ? "center" : "flex-start",
           alignItems: "center",
           gap: "10px",
           marginLeft: isMobile ? "1vw" : "5vw",

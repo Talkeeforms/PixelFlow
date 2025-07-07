@@ -159,7 +159,7 @@ export default function App() {
               },
             }}
             sx={{
-              pt: { xs: 7, md: 8 }, // <-- same idea here
+              pt: { xs: 5, md: 8 }, // <-- same idea here
             }}
           >
             {/*Responsável pela exibição das páginas dentro da aplicação;*/}

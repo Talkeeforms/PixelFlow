@@ -44,7 +44,6 @@ export default function SellsCard({ variant }) {
         "data-toolpad-color-scheme"
       );
       setCurrentTheme(newTheme);
-      setCurrentLogo(newTheme === "light" ? lightLogo : darkLogo);
     }; //Função responsável pela atualização da variável de tema atual, e da troca de logotipo;
 
     const observer = new MutationObserver(handleThemeChange);

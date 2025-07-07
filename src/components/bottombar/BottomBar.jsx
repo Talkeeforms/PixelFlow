@@ -24,7 +24,7 @@ export default function BottomBar({ isMobile }) {
     >
       <Paper
         sx={{
-          borderRadius: "100px",
+          borderRadius: "20px",
         }}
         elevation={5}
       >
@@ -32,7 +32,6 @@ export default function BottomBar({ isMobile }) {
           sx={{
             borderRadius: "100px",
           }}
-          ele
         >
           <BottomNavigationAction
             onClick={() => navigate("/dashboard")}
