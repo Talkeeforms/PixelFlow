@@ -8,7 +8,6 @@ import TurnRightIcon from "@mui/icons-material/TurnRight";
 
 import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
 
-import metaIcon from "@/styles/ICONS/CRM/MiniCards/meta.webp";
 import facebookIcon from "@/styles/ICONS/CRM/MiniCards/facebook.png";
 
 import CRMDialog from "./dialog/CRMDialog";
@@ -21,21 +20,20 @@ import EventMiniCard from "./minicards/EventMiniCard";
 import ChatMiniCard from "./minicards/ChatMiniCard";
 import ChartMiniCard from "./minicards/ChartMiniCard";
 
-const modeloCard = {
-  nome: "Pedro",
-  data: "22/01/2025, 11:25:05",
-  telefone: "(00) 0 0000-0000",
-  app: "",
-  lead: "red",
-  origin: metaIcon,
-  source: facebookIcon,
-  currentStatus: "Conversa Iniciada",
-  event: "ViewContent",
-};
-
 const TaskCard = React.memo(({ task, index }) => {
   const theme = useTheme();
-  const open = false;
+
+  const modeloCard = {
+    nome: "Pedro",
+    data: "22/01/2025, 11:25:05",
+    telefone: "(00) 0 0000-0000",
+    app: "",
+    lead: "red",
+    origin: theme.logo.crmMiniCard.meta.default,
+    source: facebookIcon,
+    currentStatus: "Conversa Iniciada",
+    event: "ViewContent",
+  };
 
   return (
     <Draggable draggableId={task.id} index={index}>
@@ -87,7 +85,7 @@ const TaskCard = React.memo(({ task, index }) => {
               >
                 <Box
                   sx={{
-                    backgroundColor: "#D9D9D7",
+                    backgroundColor: theme.palette.background.kanbanCardAccount,
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -96,7 +94,10 @@ const TaskCard = React.memo(({ task, index }) => {
                   }}
                 >
                   <AccountCircleOutlinedIcon
-                    sx={{ fontSize: "70px", color: "blue" }}
+                    sx={{
+                      fontSize: "70px",
+                      color: theme.palette.font.kanbanCardAccount,
+                    }}
                   />
                 </Box>
               </Box>
@@ -143,7 +144,10 @@ const TaskCard = React.memo(({ task, index }) => {
                     <Box sx={{ display: "flex" }}>
                       <Button sx={{ borderRadius: "100%" }}>
                         <TurnRightIcon
-                          sx={{ fontSize: "25px", color: "blue" }}
+                          sx={{
+                            fontSize: "25px",
+                            color: theme.palette.font.kanbanCardIcons,
+                          }}
                         />
                       </Button>
                     </Box>
@@ -198,10 +202,12 @@ const TaskCard = React.memo(({ task, index }) => {
                     width: "100%",
                     height: "100%",
                     borderRadius: "10px",
-                    backgroundColor: "white",
+                    backgroundColor: theme.palette.background.kanbanMiniCard,
                   }}
                 >
-                  <PhoneInTalkOutlinedIcon sx={{ color: "blue" }} />
+                  <PhoneInTalkOutlinedIcon
+                    sx={{ color: theme.palette.font.kanbanCardIcons }}
+                  />
                 </Box>
               </Box>
             </Box>

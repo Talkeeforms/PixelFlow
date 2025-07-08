@@ -9,9 +9,11 @@ import {
 } from "@mui/material";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import { useState } from "react";
+import { useTheme } from "@emotion/react";
 
 export default function CRMDialog() {
   const [open, setOpen] = useState(false);
+  const theme = useTheme();
   const handleOpen = () => {
     setOpen(true);
   };
@@ -25,7 +27,9 @@ export default function CRMDialog() {
       }}
     >
       <Button sx={{ borderRadius: "100%" }} onClick={handleOpen}>
-        <VisibilityOutlinedIcon sx={{ fontSize: "25px", color: "blue" }} />
+        <VisibilityOutlinedIcon
+          sx={{ fontSize: "25px", color: theme.palette.font.kanbanCardIcons }}
+        />
       </Button>
       <Dialog
         open={open}

@@ -4,6 +4,15 @@ import KumbhSansExtraLight from "../styles/KUMBH SANS/KumbhSans-Light.ttf";
 import KumbhSansBold from "../styles/KUMBH SANS/KumbhSans-Bold.ttf";
 import BlauerNue from "../styles/BLAUER FONT/BlauerNue-Light.ttf";
 
+//TopBar Logos
+import lightLogo from "@/styles/LOGO/Logo1.png";
+import darkLogo from "@/styles/LOGO/Logo2.png";
+
+//CRMMiniCard Logos
+//Meta
+import lightMeta from "@/styles/LOGO/crmMiniCards/Meta/meta.webp";
+import darkMeta from "@/styles/LOGO/crmMiniCards/Meta/metaDark.svg";
+
 //Função responsável pelas definições entre temas;
 const getThemeFunction = (mode) => ({
   typography: {
@@ -79,6 +88,18 @@ const getThemeFunction = (mode) => ({
 
   colorSchemes: { light: true, dark: true }, //Habilita os temas;
 
+  logo: {
+    mode,
+    topBar: {
+      default: mode === "light" ? lightLogo : darkLogo,
+    },
+    crmMiniCard: {
+      meta: {
+        default: mode === "light" ? lightMeta : darkMeta,
+      },
+    },
+  },
+
   palette: {
     mode,
     background: {
@@ -92,6 +113,8 @@ const getThemeFunction = (mode) => ({
       popupCard: mode === "light" ? "#E3EEFA" : "#2C2C2C",
       kanban: mode === "light" ? "#FAFAFA" : "#2C2C2C",
       kanbanCard: mode === "light" ? "#F1F1F1" : "#2D2D2D",
+      kanbanMiniCard: mode === "light" ? "#FFFFFF" : "#191919",
+      kanbanCardUser: mode === "light" ? "#D9D9D7" : "#2C2C2C",
     },
     paper: {
       default: mode === "light" ? 3 : 3,
@@ -100,6 +123,8 @@ const getThemeFunction = (mode) => ({
       default: mode === "light" ? "#121212" : "#FFFFFF",
       alternative: mode === "light" ? "#FFFFFF" : "#121212",
       socialCard: mode === "light" ? "#164BF7" : "#FFFFFF",
+      kanbanCardUser: mode === "light" ? "#164BF7" : "#FFFFFF",
+      kanbanCardIcons: mode === "light" ? "#038DB4" : "#038DB4",
     },
 
     border: {

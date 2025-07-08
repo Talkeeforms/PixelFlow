@@ -1,7 +1,10 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+import { useTheme } from "@emotion/react";
 
 export default function EventMiniCard({ cardData }) {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
@@ -21,7 +24,7 @@ export default function EventMiniCard({ cardData }) {
           backgroundColor: "#E0C31E",
         }}
       >
-        <Typography fontSize="16px" fontWeight={700}>
+        <Typography sx={{ color: "black" }} fontSize="16px" fontWeight={700}>
           {cardData.event}
         </Typography>
       </Box>

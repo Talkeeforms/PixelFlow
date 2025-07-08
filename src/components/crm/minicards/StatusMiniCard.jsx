@@ -1,7 +1,10 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+import { useTheme } from "@emotion/react";
 
 export default function StatusMiniCard({ cardData }) {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{

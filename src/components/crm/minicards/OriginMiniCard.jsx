@@ -1,8 +1,10 @@
 import React from "react";
 
 import { Box } from "@mui/material";
-
+import { useTheme } from "@mui/material";
 export default function OriginMiniCard({ cardData }) {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
@@ -12,7 +14,7 @@ export default function OriginMiniCard({ cardData }) {
         width: "90%",
         height: "70%",
         borderRadius: "10px",
-        backgroundColor: "white",
+        backgroundColor: theme.palette.background.kanbanMiniCard,
         padding: "10px",
       }}
     >

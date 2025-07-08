@@ -7,10 +7,6 @@ import { Account } from "@toolpad/core";
 import { ThemeSwitcher } from "@toolpad/core";
 import { UserPopup } from "./UserPopup";
 
-//Logos
-import lightLogo from "@/styles/LOGO/Logo1.png";
-import darkLogo from "@/styles/LOGO/Logo2.png";
-
 export default function TopBar() {
   const [currentTheme, setCurrentTheme] = useState(
     document.documentElement.getAttribute("data-toolpad-color-scheme")
@@ -18,25 +14,6 @@ export default function TopBar() {
 
   const theme = useTheme(currentTheme || "light");
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const [currentLogo, setCurrentLogo] = useState(lightLogo);
-
-  useEffect(() => {
-    const handleThemeChange = () => {
-      const newTheme = document.documentElement.getAttribute(
-        "data-toolpad-color-scheme"
-      );
-      setCurrentTheme(newTheme);
-      setCurrentLogo(newTheme === "light" ? lightLogo : darkLogo);
-    }; //Função responsável pela troca de logotipo;
-
-    const observer = new MutationObserver(handleThemeChange);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["data-toolpad-color-scheme"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <Box
@@ -75,7 +52,7 @@ export default function TopBar() {
             height: "auto",
             maxHeight: "30px",
           }}
-          src={currentLogo}
+          src={theme.logo.topBar.default}
         />
         <Chip
           size="small"

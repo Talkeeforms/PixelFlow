@@ -3,7 +3,10 @@ import { Box } from "@mui/material";
 
 import { FaChartLine } from "react-icons/fa6";
 
+import { useTheme } from "@emotion/react";
+
 export default function ChartMiniCard() {
+  const theme = useTheme();
   return (
     <Box
       sx={{
@@ -20,10 +23,15 @@ export default function ChartMiniCard() {
           width: "90%",
           height: "70%",
           borderRadius: "10px",
-          backgroundColor: "white",
+          backgroundColor: theme.palette.background.kanbanMiniCard,
         }}
       >
-        <FaChartLine style={{ fontSize: "20px", color: "blue" }} />
+        <FaChartLine
+          style={{
+            fontSize: "20px",
+            color: theme.palette.font.kanbanCardIcons,
+          }}
+        />
       </Box>
     </Box>
   );
