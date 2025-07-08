@@ -90,7 +90,8 @@ const getThemeFunction = (mode) => ({
       greyCard: mode === "light" ? "#DBDBDB" : "#2C2C2C",
       whiteCard: mode === "light" ? "#FFFFFF" : "#648293",
       popupCard: mode === "light" ? "#E3EEFA" : "#2C2C2C",
-      kanban: mode === "light" ? "#f4f5f7" : "#2C2C2C",
+      kanban: mode === "light" ? "#FAFAFA" : "#2C2C2C",
+      kanbanCard: mode === "light" ? "#F1F1F1" : "#2D2D2D",
     },
     paper: {
       default: mode === "light" ? 3 : 3,
@@ -99,6 +100,10 @@ const getThemeFunction = (mode) => ({
       default: mode === "light" ? "#121212" : "#FFFFFF",
       alternative: mode === "light" ? "#FFFFFF" : "#121212",
       socialCard: mode === "light" ? "#164BF7" : "#FFFFFF",
+    },
+
+    border: {
+      kanbanBorder: mode === "light" ? "#FFFFFF" : "#121212",
     },
   }, //Armazena variáveis para esquematização de cor de acordo com o tema;
 });

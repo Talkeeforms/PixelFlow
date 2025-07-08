@@ -1,14 +1,25 @@
 import React from "react";
-import { Paper, Box, Typography, Button } from "@mui/material";
+import { Paper, Box, Typography, Button, Chip } from "@mui/material";
 import { Draggable } from "@hello-pangea/dnd";
 import { useTheme } from "@mui/material";
-import DragHandleIcon from "@mui/icons-material/DragHandle";
 
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import TurnRightIcon from "@mui/icons-material/TurnRight";
-import DrawIcon from "@mui/icons-material/Draw";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+
+import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
+
+import metaIcon from "@/styles/ICONS/CRM/MiniCards/meta.webp";
+import facebookIcon from "@/styles/ICONS/CRM/MiniCards/facebook.png";
+
+import CRMDialog from "./dialog/CRMDialog";
+
+//MiniCards
+import OriginMiniCard from "./minicards/OriginMiniCard";
+import SourceMiniCard from "./minicards/SourceMiniCard";
+import StatusMiniCard from "./minicards/StatusMiniCard";
+import EventMiniCard from "./minicards/EventMiniCard";
+import ChatMiniCard from "./minicards/ChatMiniCard";
+import ChartMiniCard from "./minicards/ChartMiniCard";
 
 const modeloCard = {
   nome: "Pedro",
@@ -16,10 +27,16 @@ const modeloCard = {
   telefone: "(00) 0 0000-0000",
   app: "",
   lead: "red",
+  origin: metaIcon,
+  source: facebookIcon,
+  currentStatus: "Conversa Iniciada",
+  event: "ViewContent",
 };
 
 const TaskCard = React.memo(({ task, index }) => {
   const theme = useTheme();
+  const open = false;
+
   return (
     <Draggable draggableId={task.id} index={index}>
       {(provided, snapshot) => (
@@ -31,21 +48,22 @@ const TaskCard = React.memo(({ task, index }) => {
             userSelect: "none",
             padding: 0.3,
             color: theme.palette.font.default,
-            margin: "0 0 8px 0",
-            height: "390px",
+            margin: "0 0 15px 0",
+            height: "350px",
             backgroundColor: snapshot.isDragging
               ? "lightgreen"
               : theme.palette.background.default,
             ...provided.draggableProps.style,
             borderRadius: "15px",
-            border: "1px solid #FFFFFF",
+            borderTop: `7px solid ${modeloCard.lead}`,
+            border: `1px solid ${theme.palette.border.kanbanCard}}`,
           }}
         >
           <Box
             sx={{
               display: "grid",
-              gridTemplateRows: "1.3fr 1fr 1fr 1fr",
-              backgroundColor: "#F1F1F1",
+              gridTemplateRows: "2fr 1fr 1fr 1fr 1fr",
+              backgroundColor: theme.palette.background.kanbanCard,
               width: "100%",
               height: "100%",
               borderRadius: "15px",
@@ -91,7 +109,7 @@ const TaskCard = React.memo(({ task, index }) => {
                 <Box
                   sx={{
                     display: "grid",
-                    gridTemplateColumns: "2fr 1fr",
+                    gridTemplateColumns: "1fr 1fr",
                   }}
                 >
                   <Box
@@ -112,21 +130,23 @@ const TaskCard = React.memo(({ task, index }) => {
                       <Typography fontWeight={700}>
                         {modeloCard.nome}
                       </Typography>
-                      <FiberManualRecordIcon
-                        sx={{ fontSize: "14px", color: modeloCard.lead }}
-                      />
                     </Box>
                   </Box>
                   <Box
                     sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
+                      display: "grid",
+                      gridTemplateColumns: "2fr 1fr",
                     }}
                   >
-                    <Button sx={{ borderRadius: "100%" }}>
-                      <TurnRightIcon sx={{ fontSize: "30px", color: "blue" }} />
-                    </Button>
+                    <CRMDialog />
+
+                    <Box sx={{ display: "flex" }}>
+                      <Button sx={{ borderRadius: "100%" }}>
+                        <TurnRightIcon
+                          sx={{ fontSize: "25px", color: "blue" }}
+                        />
+                      </Button>
+                    </Box>
                   </Box>
                 </Box>
                 <Box>
@@ -142,125 +162,92 @@ const TaskCard = React.memo(({ task, index }) => {
                 </Box>
               </Box>
             </Box>
+
             <Box
               sx={{
-                gridRow: 2,
                 display: "grid",
-                gridTemplateRows: "1fr 1fr",
+                gridTemplateColumns: "2.5fr 1fr",
               }}
             >
-              <Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "flex-start",
-                    alignItems: "center",
-                    height: "100%",
-                    paddingLeft: 2,
-                    gap: 1,
-                  }}
-                >
-                  <Typography fontWeight={700}>Telefone:</Typography>
-                  <Typography>{modeloCard.telefone}</Typography>
-                </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  alignItems: "center",
+                  height: "100%",
+                  paddingLeft: 2,
+                  gap: 1,
+                }}
+              >
+                <Typography fontWeight={700}>Telefone:</Typography>
+                <Typography>{modeloCard.telefone}</Typography>
               </Box>
               <Box
                 sx={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  padding: "10px",
                 }}
               >
-                <Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "flex-start",
-                      alignItems: "center",
-                      height: "100%",
-                      paddingLeft: 2,
-                      gap: 1,
-                    }}
-                  >
-                    <Typography fontWeight={700}>App:</Typography>
-                    <Typography></Typography>
-                  </Box>
-                </Box>
                 <Box
                   sx={{
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "10px",
+                    backgroundColor: "white",
                   }}
                 >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: 1,
-                      paddingLeft: 3,
-                    }}
-                  >
-                    <Typography>Ação</Typography>
-                    <DrawIcon />
-                  </Box>
+                  <PhoneInTalkOutlinedIcon sx={{ color: "blue" }} />
                 </Box>
               </Box>
             </Box>
-            <Box
-              sx={{
-                gridRow: 3,
-                backgroundColor: "green",
-                display: "grid",
-                gridTemplateRows: "2fr 1fr",
-              }}
-            >
-              <Box
-                sx={{
-                  backgroundColor: "#ACFC72",
-                  display: "grid",
 
-                  gridTemplateColumns: "2fr 1fr",
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
-                {" "}
-                <Box sx={{ backgroundColor: "#FCEC72" }}></Box>
-                <Box sx={{ backgroundColor: "#9DFF10" }}></Box>
+                <OriginMiniCard cardData={modeloCard} />
               </Box>
-              <Box sx={{ backgroundColor: "#72FCD0" }}></Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <SourceMiniCard cardData={modeloCard} />
+              </Box>
             </Box>
             <Box
               sx={{
-                gridRow: 4,
                 display: "grid",
-                gridTemplateRows: "1fr 1fr",
+                gridTemplateColumns: "1fr 1fr",
               }}
             >
-              <Box sx={{ backgroundColor: "#FCB972" }}></Box>
-              <Box
-                sx={{
-                  display: "grid",
-                  gridTemplateColumns: "2fr 1fr",
-                }}
-              >
-                <Box
-                  sx={{
-                    backgroundColor: "#FCCD72",
-                  }}
-                ></Box>
-                <Box sx={{}}>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      height: "100%",
-                    }}
-                  >
-                    <WhatsAppIcon sx={{ fontSize: "30px" }} />
-                  </Box>
-                </Box>
-              </Box>
+              <StatusMiniCard cardData={modeloCard} />
+              <EventMiniCard cardData={modeloCard} />
+            </Box>
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+              }}
+            >
+              <ChatMiniCard />
+              <ChartMiniCard />
             </Box>
           </Box>
         </Paper>

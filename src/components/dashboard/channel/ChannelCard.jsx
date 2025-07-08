@@ -1,9 +1,9 @@
 import { Box, Typography, Paper } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import whatsappIcon from "@/styles/ÍCONES/Channel/whatsapp2.svg";
-import reportsIcon from "@/styles/ÍCONES/Channel/forms.png";
-import phoneIcon from "@/styles/ÍCONES/Channel/call.svg";
-import scheduleIcon from "@/styles/ÍCONES/Channel/calendar.svg";
+import whatsappIcon from "@/styles/ICONS/Channel/whatsapp2.svg";
+import reportsIcon from "@/styles/ICONS/Channel/forms.png";
+import phoneIcon from "@/styles/ICONS/Channel/call.svg";
+import scheduleIcon from "@/styles/ICONS/Channel/calendar.svg";
 
 const variants = [
   {

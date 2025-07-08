@@ -1,9 +1,9 @@
 import { Box, Typography, Paper } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import hotIcon from "@/styles/ÍCONES/Termometer/hot.svg";
-import warmIcon from "@/styles/ÍCONES/Termometer/warm.svg";
-import coldIcon from "@/styles/ÍCONES/Termometer/cold.svg";
-import talkIcon from "@/styles/ÍCONES/Termometer/chat.svg";
+import hotIcon from "@/styles/ICONS/Termometer/hot.svg";
+import warmIcon from "@/styles/ICONS/Termometer/warm.svg";
+import coldIcon from "@/styles/ICONS/Termometer/cold.svg";
+import talkIcon from "@/styles/ICONS/Termometer/chat.svg";
 
 const variants = [
   {

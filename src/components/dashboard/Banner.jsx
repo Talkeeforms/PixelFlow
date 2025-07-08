@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import handIcon from "@/styles/ÍCONES/Banner/hand.png";
+import handIcon from "@/styles/ICONS/Banner/hand.png";
 import BannerBackground from "@/styles/LOGO/Banner2.png";
 import { getTheme } from "../GetCurrentTheme";
 

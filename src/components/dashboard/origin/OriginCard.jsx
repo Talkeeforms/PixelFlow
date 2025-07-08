@@ -1,9 +1,9 @@
 import { Box, Typography, Paper } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import facebookIcon from "@/styles/ÍCONES/Social/facebook.png";
-import googleIcon from "@/styles/ÍCONES/Social/google.svg";
-import whatsappIcon from "@/styles/ÍCONES/Social/whatsapp.svg";
-import outrosIcon from "@/styles/ÍCONES/Social/outros.png";
+import facebookIcon from "@/styles/ICONS/Social/facebook.png";
+import googleIcon from "@/styles/ICONS/Social/google.svg";
+import whatsappIcon from "@/styles/ICONS/Social/whatsapp.svg";
+import outrosIcon from "@/styles/ICONS/Social/outros.png";
 
 const variants = [
   {

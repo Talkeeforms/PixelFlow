@@ -1,10 +1,10 @@
 import { Box, Typography, Paper } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useState, useEffect } from "react";
-import sellIcon2 from "@/styles/ÍCONES/Sell/sell.svg";
-import sellIcon from "@/styles/ÍCONES/Sell/sell2.svg";
-import billingIcon from "@/styles/ÍCONES/Sell/billing.svg";
-import billingIcon2 from "@/styles/ÍCONES/Sell/billing2.svg";
+import sellIcon2 from "@/styles/ICONS/Sell/sell.svg";
+import sellIcon from "@/styles/ICONS/Sell/sell2.svg";
+import billingIcon from "@/styles/ICONS/Sell/billing.svg";
+import billingIcon2 from "@/styles/ICONS/Sell/billing2.svg";
 
 const variants = [
   {
