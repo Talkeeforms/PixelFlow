@@ -5,10 +5,7 @@ import { useTheme } from "@mui/material";
 
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import TurnRightIcon from "@mui/icons-material/TurnRight";
-
 import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
-
-import facebookIcon from "@/styles/ICONS/CRM/MiniCards/facebook.png";
 
 import CRMDialog from "./dialog/CRMDialog";
 
@@ -23,22 +20,11 @@ import ChartMiniCard from "./minicards/ChartMiniCard";
 const TaskCard = React.memo(({ task, index }) => {
   const theme = useTheme();
 
-  const modeloCard = {
-    nome: "Pedro",
-    data: "22/01/2025, 11:25:05",
-    telefone: "(00) 0 0000-0000",
-    app: "",
-    lead: "red",
-    origin: theme.logo.crmMiniCard.meta.default,
-    source: facebookIcon,
-    currentStatus: "Conversa Iniciada",
-    event: "ViewContent",
-  };
-
   return (
     <Draggable draggableId={task.id} index={index}>
       {(provided, snapshot) => (
         <Paper
+          elevation={2}
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
@@ -53,7 +39,7 @@ const TaskCard = React.memo(({ task, index }) => {
               : theme.palette.background.default,
             ...provided.draggableProps.style,
             borderRadius: "15px",
-            borderTop: `7px solid ${modeloCard.lead}`,
+            borderTop: `7px solid ${task.lead}`,
             border: `1px solid ${theme.palette.border.kanbanCard}}`,
           }}
         >
@@ -96,7 +82,7 @@ const TaskCard = React.memo(({ task, index }) => {
                   <AccountCircleOutlinedIcon
                     sx={{
                       fontSize: "70px",
-                      color: theme.palette.font.kanbanCardAccount,
+                      color: theme.palette.font.kanbanCardUser,
                     }}
                   />
                 </Box>
@@ -110,7 +96,7 @@ const TaskCard = React.memo(({ task, index }) => {
                 <Box
                   sx={{
                     display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
+                    gridTemplateColumns: "4fr 2fr",
                   }}
                 >
                   <Box
@@ -128,15 +114,14 @@ const TaskCard = React.memo(({ task, index }) => {
                         alignItems: "center",
                       }}
                     >
-                      <Typography fontWeight={700}>
-                        {modeloCard.nome}
-                      </Typography>
+                      <Typography fontWeight={700}>{task.nome}</Typography>
                     </Box>
                   </Box>
                   <Box
                     sx={{
                       display: "grid",
-                      gridTemplateColumns: "2fr 1fr",
+                      gridTemplateColumns: "1fr 1fr",
+                      justifyItems: "end",
                     }}
                   >
                     <CRMDialog />
@@ -161,7 +146,7 @@ const TaskCard = React.memo(({ task, index }) => {
                       alignItems: "flex-start",
                     }}
                   >
-                    {modeloCard.data}
+                    {task.data}
                   </Typography>
                 </Box>
               </Box>
@@ -184,7 +169,7 @@ const TaskCard = React.memo(({ task, index }) => {
                 }}
               >
                 <Typography fontWeight={700}>Telefone:</Typography>
-                <Typography>{modeloCard.telefone}</Typography>
+                <Typography>{task.telefone}</Typography>
               </Box>
               <Box
                 sx={{
@@ -225,7 +210,7 @@ const TaskCard = React.memo(({ task, index }) => {
                   alignItems: "center",
                 }}
               >
-                <OriginMiniCard cardData={modeloCard} />
+                <OriginMiniCard cardData={task} />
               </Box>
               <Box
                 sx={{
@@ -234,7 +219,7 @@ const TaskCard = React.memo(({ task, index }) => {
                   alignItems: "center",
                 }}
               >
-                <SourceMiniCard cardData={modeloCard} />
+                <SourceMiniCard cardData={task} />
               </Box>
             </Box>
             <Box
@@ -243,8 +228,8 @@ const TaskCard = React.memo(({ task, index }) => {
                 gridTemplateColumns: "1fr 1fr",
               }}
             >
-              <StatusMiniCard cardData={modeloCard} />
-              <EventMiniCard cardData={modeloCard} />
+              <StatusMiniCard cardData={task} />
+              <EventMiniCard cardData={task} />
             </Box>
             <Box
               sx={{

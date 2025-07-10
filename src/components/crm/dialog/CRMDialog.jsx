@@ -1,12 +1,4 @@
-import React from "react";
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  Box,
-  Button,
-  Typography,
-} from "@mui/material";
+import { Dialog, DialogContent, Box, Button, Typography } from "@mui/material";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import { useState } from "react";
 import { useTheme } from "@emotion/react";
@@ -24,6 +16,7 @@ export default function CRMDialog() {
     <Box
       sx={{
         display: "flex",
+        gap: "",
       }}
     >
       <Button sx={{ borderRadius: "100%" }} onClick={handleOpen}>

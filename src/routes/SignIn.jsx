@@ -60,6 +60,7 @@ export default function SignIn() {
           fontWeight: 700,
           fontSize: 15,
           textTransform: "none",
+          backgroundColor: "#0063CA",
         }}
         onClick={handleSignIn}
       >

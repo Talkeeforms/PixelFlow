@@ -5,7 +5,7 @@ import { useTheme } from "@emotion/react";
 
 export default function SourceMiniCard({ cardData }) {
   const theme = useTheme();
-
+  const logoSrc = theme.logo.sources[cardData.source];
   return (
     <Box
       sx={{
@@ -21,7 +21,7 @@ export default function SourceMiniCard({ cardData }) {
     >
       <Box
         component="img"
-        src={cardData.source}
+        src={logoSrc}
         sx={{
           display: "flex",
           justifyContent: "center",

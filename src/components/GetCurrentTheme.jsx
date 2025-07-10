@@ -10,8 +10,14 @@ import darkLogo from "@/styles/LOGO/Logo2.png";
 
 //CRMMiniCard Logos
 //Meta
-import lightMeta from "@/styles/LOGO/crmMiniCards/Meta/meta.webp";
-import darkMeta from "@/styles/LOGO/crmMiniCards/Meta/metaDark.svg";
+import lightMetaMiniCard from "@/styles/LOGO/crmMiniCards/Meta/metaLight.svg";
+import darkMetaMiniCard from "@/styles/LOGO/crmMiniCards/Meta/metaDark.svg";
+//Instagram
+import instagramMiniCard from "@/styles/LOGO/crmMiniCards/Meta/instagram.svg";
+//Facebook
+import facebookMiniCard from "@/styles/LOGO/crmMiniCards/Meta/facebook.svg";
+//Google
+import googleMiniCard from "@/styles/LOGO/crmMiniCards/Google/google.svg";
 
 //Função responsável pelas definições entre temas;
 const getThemeFunction = (mode) => ({
@@ -93,10 +99,14 @@ const getThemeFunction = (mode) => ({
     topBar: {
       default: mode === "light" ? lightLogo : darkLogo,
     },
-    crmMiniCard: {
-      meta: {
-        default: mode === "light" ? lightMeta : darkMeta,
-      },
+    origins: {
+      meta: mode === "light" ? lightMetaMiniCard : darkMetaMiniCard,
+      google: googleMiniCard,
+    },
+    sources: {
+      instagram: instagramMiniCard,
+      facebook: facebookMiniCard,
+      google: googleMiniCard,
     },
   },
 
