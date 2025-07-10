@@ -13,6 +13,7 @@ const bannerStyles = {
   backgroundPosition: "center",
   borderRadius: "15px",
   marginBottom: "3rem",
+  marginTop: { xs: "-20px" },
   color: "white",
   fontFamily: "'Segoe UI', sans-serif",
   display: "grid",

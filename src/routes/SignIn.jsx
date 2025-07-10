@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "./default.css";
+import backgroundImage from "@/styles/LOGIN/background.png";
 
 const providers = [{ id: "credentials", name: "Email e Senha" }];
 
@@ -132,12 +133,22 @@ export default function SignIn() {
     >
       <Box
         sx={{
-          display: { xs: "none", md: "block" },
-          backgroundColor: "black",
-          borderBottomRightRadius: "40px",
-          borderTopRightRadius: "40px",
+          display: { xs: "none", md: "flex" },
         }}
-      ></Box>
+      >
+        <Box
+          component="img"
+          src={backgroundImage}
+          sx={{
+            borderBottomRightRadius: "40px",
+            borderTopRightRadius: "40px",
+            width: "auto",
+            position: "fixed",
+            height: "100vh",
+            left: -150,
+          }}
+        ></Box>
+      </Box>
 
       <Box
         sx={{
