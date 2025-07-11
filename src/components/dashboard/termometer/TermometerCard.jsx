@@ -42,6 +42,7 @@ const variantSelect = (variant) => {
   }
 };
 
+//Componente da linha de "Termômetro" da Dashboard;
 export default function TermometerCard({ variant }) {
   const theme = useTheme("light");
   const buttonVariant = variantSelect(variant);

@@ -7,6 +7,7 @@ import { initialData } from "./initial-data";
 import Column from "./Column";
 import AddColumn from "./AddColumn";
 
+//Componente responsável pelo gerenciamento e exibição de colunas e cards do CRM;
 export default function MainBoard() {
   const [boardData, setBoardData] = useState(initialData);
   const theme = useTheme();

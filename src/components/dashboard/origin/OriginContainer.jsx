@@ -1,6 +1,7 @@
 import OriginCard from "./OriginCard";
 import { Box, Typography } from "@mui/material";
 
+//Componente responsável por agrupar os cards de "Origem" da Dashboard;
 export default function OriginContainer() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>

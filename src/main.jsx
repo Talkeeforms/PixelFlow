@@ -27,6 +27,10 @@ const router = createBrowserRouter([
         path: "crm",
         element: <CRMPage />,
       },
+      {
+        path: "test",
+        element: <ExamplePage2 />,
+      },
     ],
   },
 ]);

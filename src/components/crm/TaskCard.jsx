@@ -17,6 +17,7 @@ import EventMiniCard from "./minicards/EventMiniCard";
 import ChatMiniCard from "./minicards/ChatMiniCard";
 import ChartMiniCard from "./minicards/ChartMiniCard";
 
+//Componente responsável pela definição do card CRM;
 const TaskCard = React.memo(({ task, index }) => {
   const theme = useTheme();
 

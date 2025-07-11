@@ -5,6 +5,7 @@ import TaskCard from "./TaskCard";
 import DragHandleIcon from "@mui/icons-material/DragHandle";
 import { useTheme } from "@mui/material";
 
+//Função responsável pela lógica de coluna do CRM;
 const Column = React.memo(({ column, tasks, index, isMobile }) => {
   const theme = useTheme();
   return (

@@ -29,6 +29,7 @@ const variantSelect = (variant) => {
   }
 };
 
+//Componente da linha de "Vendas" da Dashboard;
 export default function SellsCard({ variant }) {
   const theme = useTheme("light");
   const buttonVariant = variantSelect(variant);

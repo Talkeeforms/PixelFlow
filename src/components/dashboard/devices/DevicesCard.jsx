@@ -30,7 +30,7 @@ const variantSelect = (variant) => {
     return null;
   }
 };
-
+//Componente da linha de "Dipositivos" da Dashboard;
 export default function DevicesCard({ variant }) {
   const theme = useTheme("light");
   const buttonVariant = variantSelect(variant);

@@ -9,6 +9,7 @@ import { interpolateObject } from "@mui/x-charts-vendor/d3-interpolate";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
+//Componente responsável pelos gráficos de vendas da linha de "Vendas" da Dashboard;
 export default function SellsChart() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -29,7 +30,6 @@ export default function SellsChart() {
       <BarPlot barLabel="value" slots={{ barLabel: BarLabel }} />
       <ChartsXAxis />
       <ChartsYAxis />
-      {console.log(isMobile)}
     </ChartContainer>
   );
 }

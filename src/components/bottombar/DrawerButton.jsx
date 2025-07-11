@@ -50,6 +50,7 @@ const variantSelect = (variant) => {
   else return null;
 };
 
+//Componente responsável pelos botões do menu expandido da barra inferior Mobile.
 export default function DrawerButton({ variant }) {
   const currentButton = variantSelect(variant);
   return (

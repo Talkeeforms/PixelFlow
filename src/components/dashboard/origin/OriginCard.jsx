@@ -38,6 +38,7 @@ const variantSelect = (variant) => {
   }
 };
 
+//Componente da linha de "Origem" da Dashboard;
 export default function OriginCard({ variant }) {
   const theme = useTheme("light");
   const buttonVariant = variantSelect(variant);

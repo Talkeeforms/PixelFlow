@@ -15,35 +15,27 @@ import DrawerButton from "./DrawerButton";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import RssFeedIcon from "@mui/icons-material/RssFeed";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import MenuIcon from "@mui/icons-material/Menu";
 import TimelineIcon from "@mui/icons-material/Timeline";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 
+//Componente responsável pela barra inferior do Mobile;
 export default function BottomBar({ isMobile }) {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); //Função responsável pela mudança de páginas
   const [open, setOpen] = useState(false);
 
-  const DrawerList = (
-    <Box
-      sx={{
-        height: "50vh",
-        borderRadius: "50px",
-        display: "flex",
-        justifyContent: "center",
-        paddingTop: "30px",
-      }}
-    >
-      <List
+  const DrawerList = //Função responsável pela definição do menu expandido do Mobile.
+    (
+      <Box
         sx={{
-          width: "100%",
+          height: "50vh",
+          borderRadius: "50px",
           display: "flex",
           justifyContent: "center",
-          alignItems: "flex-start",
-          flexDirection: "column",
+          paddingTop: "30px",
         }}
       >
-        <ListItem
+        <List
           sx={{
             width: "100%",
             display: "flex",
@@ -52,80 +44,90 @@ export default function BottomBar({ isMobile }) {
             flexDirection: "column",
           }}
         >
-          <DrawerButton variant={"dashboard"} />
-        </ListItem>
-        <ListItem
-          sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            flexDirection: "column",
-          }}
-        >
-          <DrawerButton variant={"queue"} />
-        </ListItem>
-        <ListItem
-          sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            flexDirection: "column",
-          }}
-        >
-          <DrawerButton variant={"whatsapp"} />
-        </ListItem>
-        <ListItem
-          sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            flexDirection: "column",
-          }}
-        >
-          <DrawerButton variant={"crm"} />
-        </ListItem>
-        <ListItem
-          sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            flexDirection: "column",
-          }}
-        >
-          <DrawerButton variant={"report"} />
-        </ListItem>
-        <ListItem
-          sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            flexDirection: "column",
-          }}
-        >
-          <DrawerButton variant={"user"} />
-        </ListItem>
-        <ListItem>
-          <Divider sx={{ width: "100%" }} />
-        </ListItem>
-        <ListItem
-          sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            flexDirection: "column",
-          }}
-        >
-          <DrawerButton variant={"treatment"} />
-        </ListItem>
-      </List>
-    </Box>
-  );
+          <ListItem
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-start",
+              flexDirection: "column",
+            }}
+          >
+            <DrawerButton variant={"dashboard"} />
+            {/*O botão é definido pela variante passada aqui*/}
+          </ListItem>
+          <ListItem
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-start",
+              flexDirection: "column",
+            }}
+          >
+            <DrawerButton variant={"queue"} />
+          </ListItem>
+          <ListItem
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-start",
+              flexDirection: "column",
+            }}
+          >
+            <DrawerButton variant={"whatsapp"} />
+          </ListItem>
+          <ListItem
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-start",
+              flexDirection: "column",
+            }}
+          >
+            <DrawerButton variant={"crm"} />
+          </ListItem>
+          <ListItem
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-start",
+              flexDirection: "column",
+            }}
+          >
+            <DrawerButton variant={"report"} />
+          </ListItem>
+          <ListItem
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-start",
+              flexDirection: "column",
+            }}
+          >
+            <DrawerButton variant={"user"} />
+          </ListItem>
+          <ListItem>
+            <Divider sx={{ width: "100%" }} />
+          </ListItem>
+          <ListItem
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-start",
+              flexDirection: "column",
+            }}
+          >
+            <DrawerButton variant={"treatment"} />
+          </ListItem>
+        </List>
+      </Box>
+    );
 
   const handleOpenLateralMenu = (newOpen) => {
     setOpen(newOpen);

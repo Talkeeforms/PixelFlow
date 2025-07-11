@@ -1,6 +1,7 @@
 import DevicesCard from "./DevicesCard";
 import { Box, Typography } from "@mui/material";
 
+//Componente responsável por agrupar os cards de "Dispositivos" da Dashboard;
 export default function DevicesContainer() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>

@@ -1,6 +1,7 @@
 import ChannelCard from "./ChannelCard";
 import { Box, Typography } from "@mui/material";
 
+//Componente responsável por agrupar os cards de "Canais" da Dashboard;
 export default function ChannelContainer() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>

@@ -2,6 +2,8 @@ import { Dialog, DialogContent, Box, Button, Typography } from "@mui/material";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import { useState } from "react";
 import { useTheme } from "@emotion/react";
+import DialogBoxWeb from "./DIalogBoxWeb";
+import DialogBoxMobile from "./DialogBoxMobile";
 
 export default function CRMDialog() {
   const [open, setOpen] = useState(false);
@@ -33,125 +35,41 @@ export default function CRMDialog() {
           "& .MuiDialog-paper": {
             borderRadius: "25px",
             backgroundColor: "#DBDBDB",
+            width: { md: "60%", xs: "100%" },
+            maxWidth: "100%",
+            margin: 0,
+            height: { xs: "100vh", md: "auto" },
+            borderRadius: { xs: 0, md: "25px" },
+          },
+          "& .MuiDialog-container": {
+            alignItems: { md: "center", xs: "stretch" },
+            height: { xs: "100vh" },
           },
         }}
       >
-        <DialogContent>
+        <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <DialogBoxWeb />
+        </Box>
+        <Box sx={{ display: { xs: "flex", md: "none" } }}>
+          <DialogBoxMobile />
+        </Box>
+        <Box
+          sx={{
+            display: { md: "none", xs: "flex" },
+            position: "relative",
+
+            bottom: 10,
+            width: "100%",
+          }}
+        >
           <Box
-            sx={{
-              height: "80vh",
-              width: "100%",
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr 1fr",
-              gap: "15px",
-            }}
+            sx={{ display: "flex", justifyContent: "center", width: "100%" }}
           >
-            <Box
-              sx={{
-                borderRadius: "25px",
-                backgroundColor: "white",
-                display: "grid",
-                gridTemplateRows: "1fr 5fr",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  backgroundColor: "blue",
-                  padding: "7px 10px 5px 10px",
-                  borderRadius: "10px",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <Typography fontWeight={700} sx={{ color: "white" }}>
-                  UTM
-                </Typography>
-              </Box>
-            </Box>
-            <Box
-              sx={{
-                borderRadius: "25px",
-                backgroundColor: "white",
-                display: "grid",
-                gridTemplateRows: "1fr 5fr",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  backgroundColor: "blue",
-                  padding: "7px 10px 5px 10px",
-                  borderRadius: "10px",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <Typography fontWeight={700} sx={{ color: "white" }}>
-                  JORNADA DE <br /> CONVERSÃO
-                </Typography>
-              </Box>
-            </Box>
-            <Box
-              sx={{
-                display: "grid",
-                gridTemplateRows: "1fr 1fr",
-                gap: "15px",
-              }}
-            >
-              <Box
-                sx={{
-                  borderRadius: "25px",
-                  backgroundColor: "white",
-                  display: "grid",
-                  gridTemplateRows: "2fr 5fr",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Box
-                  sx={{
-                    backgroundColor: "blue",
-                    padding: "7px 10px 5px 10px",
-                    borderRadius: "10px",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <Typography fontWeight={700} sx={{ color: "white" }}>
-                    AGENDAMENTO
-                  </Typography>
-                </Box>
-              </Box>
-              <Box
-                sx={{
-                  borderRadius: "25px",
-                  backgroundColor: "white",
-                  display: "grid",
-                  gridTemplateRows: "2fr 5fr",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Box
-                  sx={{
-                    backgroundColor: "blue",
-                    padding: "7px 10px 5px 10px",
-                    borderRadius: "10px",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <Typography fontWeight={700} sx={{ color: "white" }}>
-                    FATURAMENTO
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
+            <Button variant="contained" onClick={handleClose}>
+              Fechar
+            </Button>
           </Box>
-        </DialogContent>
+        </Box>
       </Dialog>
     </Box>
   );

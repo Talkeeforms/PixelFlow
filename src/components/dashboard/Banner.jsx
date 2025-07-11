@@ -21,6 +21,7 @@ const bannerStyles = {
   overflow: "hidden",
 };
 
+//Componente de Banner da Dashboard;
 export default function Banner() {
   const theme = getTheme("light");
   return (

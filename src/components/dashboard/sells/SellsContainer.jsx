@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material";
 import SellsChart from "./SellsChart";
 import { useTheme } from "@mui/material/styles";
 
+//Componente responsável por agrupar os cards de "Vendas" da Dashboard;
 export default function SellsContainer() {
   const theme = useTheme("light");
   return (

@@ -5,7 +5,6 @@ import { useTheme } from "@mui/material";
 export default function OriginMiniCard({ cardData }) {
   const theme = useTheme();
   const logoSrc = theme.logo.origins[cardData.origin];
-  console.log(cardData);
   return (
     <Box
       sx={{

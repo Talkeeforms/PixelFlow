@@ -38,6 +38,7 @@ const variantSelect = (variant) => {
   }
 };
 
+//Componente da linha de "Canais" da Dashboard;
 export default function ChannelCard({ variant }) {
   const theme = useTheme("light");
   const buttonVariant = variantSelect(variant);

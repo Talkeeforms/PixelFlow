@@ -22,6 +22,7 @@ import TimelineIcon from "@mui/icons-material/Timeline";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import GroupIcon from "@mui/icons-material/Group";
 import ChatIcon from "@mui/icons-material/Chat";
+import BugReportIcon from "@mui/icons-material/BugReport";
 
 //Variável responsável pelo armazém das páginas do menu lateral, incluindo ícone e link;
 const navigate = [
@@ -66,6 +67,11 @@ const navigate = [
     segment: "chat",
     title: "Atendimento",
     icon: <ChatIcon />,
+  },
+  {
+    segment: "test",
+    title: "Teste",
+    icon: <BugReportIcon />,
   },
 ];
 

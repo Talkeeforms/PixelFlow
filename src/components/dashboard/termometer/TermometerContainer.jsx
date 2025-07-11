@@ -1,6 +1,7 @@
 import TermometerCard from "./TermometerCard";
 import { Box, Typography } from "@mui/material";
 
+//Componente responsável por agrupar os cards de "Termômetro" da Dashboard;
 export default function TermometerContainer() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>

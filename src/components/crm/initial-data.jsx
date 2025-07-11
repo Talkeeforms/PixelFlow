@@ -1,5 +1,6 @@
 import facebookIcon from "@/styles/ICONS/CRM/MiniCards/facebook.png";
 
+//Modelo de implementação de dados do card do CRM;
 export const initialData = {
   tasks: {
     "task-1": {
