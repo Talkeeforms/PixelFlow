@@ -1,4 +1,5 @@
 import { Box, Paper, Button, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import RssFeedIcon from "@mui/icons-material/RssFeed";
@@ -12,30 +13,37 @@ const variants = [
   {
     name: "Dashboard",
     icon: DashboardIcon,
+    navigate: "/dashboard",
   },
   {
     name: "Filas",
     icon: RssFeedIcon,
+    navigate: "",
   },
   {
     name: "WhatsApp",
     icon: WhatsAppIcon,
+    navigate: "",
   },
   {
     name: "CRM",
     icon: TimelineIcon,
+    navigate: "/crm",
   },
   {
     name: "Relatórios",
     icon: AssessmentIcon,
+    navigate: "",
   },
   {
     name: "Usuários",
     icon: GroupIcon,
+    navigate: "",
   },
   {
     name: "Atendimento",
     icon: ChatIcon,
+    navigate: "",
   },
 ];
 
@@ -53,6 +61,7 @@ const variantSelect = (variant) => {
 //Componente responsável pelos botões do menu expandido da barra inferior Mobile.
 export default function DrawerButton({ variant }) {
   const currentButton = variantSelect(variant);
+  const navigate = useNavigate(); //Função responsável pela mudança de páginas
   return (
     <Box
       sx={{
@@ -66,6 +75,7 @@ export default function DrawerButton({ variant }) {
           display: "grid",
           gridTemplateColumns: "1fr 5fr",
         }}
+        onClick={() => navigate(currentButton.navigate)}
       >
         <currentButton.icon sx={{ color: "#757575" }} />
         <Typography sx={{ justifySelf: "flex-start", color: "#757575" }}>
