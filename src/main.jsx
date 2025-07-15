@@ -2,7 +2,7 @@ import SignIn from "./routes/SignIn";
 import App from "./App";
 import DashboardPage from "./routes/DashboardPage";
 import CRMPage from "./routes/CRMPage";
-import ExamplePage2 from "./routes/ExamplePage2";
+import ConnectionsPage from "./routes/ConnectionsPage";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
@@ -28,8 +28,8 @@ const router = createBrowserRouter([
         element: <CRMPage />,
       },
       {
-        path: "test",
-        element: <ExamplePage2 />,
+        path: "connections",
+        element: <ConnectionsPage />,
       },
     ],
   },

@@ -12,9 +12,9 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import { useNavigate } from "react-router-dom";
 import DrawerButton from "./DrawerButton";
 
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import RssFeedIcon from "@mui/icons-material/RssFeed";
+import DashboardIcon from "@/styles/ICONS/BottomBar/menu.svg";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import RssFeedIcon from "@/styles/ICONS/BottomBar/queue.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import TimelineIcon from "@mui/icons-material/Timeline";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
@@ -159,10 +159,27 @@ export default function BottomBar({ isMobile }) {
         >
           <BottomNavigationAction
             onClick={() => navigate("/dashboard")}
-            icon={<DashboardIcon />}
+            icon={
+              <img
+                src={DashboardIcon}
+                alt="Menu icon"
+                style={{ width: "40%" }}
+              />
+            }
           />
           <BottomNavigationAction icon={<WhatsAppIcon />} />
-          <BottomNavigationAction icon={<RssFeedIcon />} />
+          <BottomNavigationAction
+            icon={
+              <img
+                src={RssFeedIcon}
+                alt="RSS Feed icon"
+                style={{
+                  width: "40%",
+                }}
+              />
+            }
+            onClick={() => navigate("/connections")}
+          />
           <BottomNavigationAction
             icon={<TimelineIcon onClick={() => navigate("/crm")} />}
           />

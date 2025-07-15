@@ -32,8 +32,8 @@ const navigate = [
     icon: <DashboardIcon />, //Ícone no menu lateral;
   },
   {
-    segment: "example2",
-    title: "Filas",
+    segment: "connections",
+    title: "Conexões",
     icon: <RssFeedIcon />,
   },
   {
