@@ -7,6 +7,7 @@ import ConnectionsPage from "./routes/ConnectionsPage";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ReportsPage from "./routes/ReportsPage";
 
 //Variável responsável pelo roteamento de páginas da aplicação;
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "connections",
         element: <ConnectionsPage />,
+      },
+      {
+        path: "reports",
+        element: <ReportsPage />,
       },
     ],
   },
