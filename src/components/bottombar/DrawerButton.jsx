@@ -33,7 +33,7 @@ const variants = [
   {
     name: "Relatórios",
     icon: AssessmentIcon,
-    navigate: "",
+    navigate: "reports",
   },
   {
     name: "Usuários",

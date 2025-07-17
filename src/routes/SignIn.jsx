@@ -126,30 +126,13 @@ export default function SignIn() {
   return (
     <Box
       sx={{
+        position: "relative",
         display: "grid",
-        gridTemplateColumns: { xs: "1fr", md: "2fr 1fr" },
+        gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
         height: "100vh",
+        width: "100vw",
       }}
     >
-      <Box
-        sx={{
-          display: { xs: "none", md: "flex" },
-        }}
-      >
-        <Box
-          component="img"
-          src={backgroundImage}
-          sx={{
-            borderBottomRightRadius: "40px",
-            borderTopRightRadius: "40px",
-            width: "auto",
-            position: "fixed",
-            height: "100vh",
-            left: -150,
-          }}
-        ></Box>
-      </Box>
-
       <Box
         sx={{
           display: "flex",
@@ -187,6 +170,23 @@ export default function SignIn() {
           }}
         />
       </Box>
+      <a href="login">
+        <Box
+          sx={{
+            display: { md: "flex", xs: "none" },
+            position: "absolute",
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            zIndex: -1, // Ensure it sits behind everything else
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+      </a>
     </Box>
   );
 }

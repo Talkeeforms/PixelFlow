@@ -132,6 +132,7 @@ const getThemeFunction = (mode) => ({
     font: {
       default: mode === "light" ? "#121212" : "#FFFFFF",
       alternative: mode === "light" ? "#FFFFFF" : "#121212",
+      alwaysWhite: "#FFFFFF",
       socialCard: mode === "light" ? "#164BF7" : "#FFFFFF",
       kanbanCardUser: mode === "light" ? "#164BF7" : "#FFFFFF",
       kanbanCardIcons: mode === "light" ? "#038DB4" : "#038DB4",

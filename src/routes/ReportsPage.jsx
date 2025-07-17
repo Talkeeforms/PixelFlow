@@ -3,7 +3,7 @@ import ReportsTable from "../components/reports/ReportsTable";
 
 export default function ReportsPage() {
   return (
-    <Box sx={{ height: "80vh" }}>
+    <Box sx={{ height: "100%", minHeight: "80vh" }}>
       <ReportsTable />
     </Box>
   );

@@ -13,11 +13,15 @@ import {
   Typography,
   ButtonGroup,
   Button,
+  Divider,
 } from "@mui/material";
 import {
   KeyboardArrowDown as KeyboardArrowDownIcon,
   KeyboardArrowUp as KeyboardArrowUpIcon,
 } from "@mui/icons-material";
+import { useTheme } from "@mui/material";
+
+import tableHeadBackground from "@/styles/REPORTS/BackgroundTableHead.png";
 
 function createData(name, telefone, origem, termometro, etiqueta) {
   return {
@@ -39,6 +43,48 @@ function createData(name, telefone, origem, termometro, etiqueta) {
 }
 
 const rows = [
+  createData(
+    "Thiago Souza",
+    "(38) 99999-9999",
+    "WhatsApp",
+    "Lead Quente",
+    "Lead Agendado"
+  ),
+  createData(
+    "Thiago Souza",
+    "(38) 99999-9999",
+    "WhatsApp",
+    "Lead Quente",
+    "Lead Agendado"
+  ),
+  createData(
+    "Thiago Souza",
+    "(38) 99999-9999",
+    "WhatsApp",
+    "Lead Quente",
+    "Lead Agendado"
+  ),
+  createData(
+    "Thiago Souza",
+    "(38) 99999-9999",
+    "WhatsApp",
+    "Lead Quente",
+    "Lead Agendado"
+  ),
+  createData(
+    "Thiago Souza",
+    "(38) 99999-9999",
+    "WhatsApp",
+    "Lead Quente",
+    "Lead Agendado"
+  ),
+  createData(
+    "Thiago Souza",
+    "(38) 99999-9999",
+    "WhatsApp",
+    "Lead Quente",
+    "Lead Agendado"
+  ),
   createData(
     "Thiago Souza",
     "(38) 99999-9999",
@@ -68,10 +114,10 @@ function Row({ row }) {
           {row.name}
         </TableCell>
 
-        <TableCell align="right">{row.telefone}</TableCell>
-        <TableCell align="right">{row.origem}</TableCell>
-        <TableCell align="right">{row.termometro}</TableCell>
-        <TableCell align="right">{row.etiqueta}</TableCell>
+        <TableCell align="center">{row.telefone}</TableCell>
+        <TableCell align="center">{row.origem}</TableCell>
+        <TableCell align="center">{row.termometro}</TableCell>
+        <TableCell align="center">{row.etiqueta}</TableCell>
       </TableRow>
 
       <TableRow>
@@ -131,25 +177,106 @@ function Row({ row }) {
   );
 }
 
-// -- The full table component
 export default function ReportsTable() {
+  const theme = useTheme();
   return (
-    <TableContainer sx={{ maxWidth: "100%" }}>
+    <TableContainer
+      sx={{
+        maxWidth: "100%",
+        borderRadius: "8px",
+        overflow: "hidden",
+        overflowX: "auto",
+        maxWidth: "100vw",
+      }}
+    >
       <Table aria-label="collapsible table">
-        <TableHead>
+        <TableHead
+          sx={{
+            backgroundImage: `url(${tableHeadBackground})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            borderRadius: "8px",
+            overflow: "hidden",
+          }}
+        >
           <TableRow>
             <TableCell />
-            <TableCell>Nome</TableCell>
-            <TableCell align="right">Telefone</TableCell>
-            <TableCell align="right">Origem</TableCell>
-            <TableCell align="right">Termômetro</TableCell>
-            <TableCell align="right">Etiqueta</TableCell>
+            <TableCell
+              sx={{
+                color: theme.palette.font.alwaysWhite,
+                borderRight: "1px solid #ccc",
+                "&:last-of-type": {
+                  borderRight: "none",
+                },
+              }}
+            >
+              Nome
+            </TableCell>
+            <TableCell
+              sx={{
+                color: theme.palette.font.alwaysWhite,
+                borderRight: "1px solid #ccc",
+                "&:last-of-type": {
+                  borderRight: "none",
+                },
+              }}
+              align="center"
+            >
+              Telefone
+            </TableCell>
+            <TableCell
+              sx={{
+                color: theme.palette.font.alwaysWhite,
+                borderRight: "1px solid #ccc",
+                "&:last-of-type": {
+                  borderRight: "none",
+                },
+              }}
+              align="center"
+            >
+              Origem
+            </TableCell>
+            <TableCell
+              sx={{
+                color: theme.palette.font.alwaysWhite,
+                borderRight: "1px solid #ccc",
+                "&:last-of-type": {
+                  borderRight: "none",
+                },
+              }}
+              align="center"
+            >
+              Termômetro
+            </TableCell>
+            <TableCell
+              sx={{
+                color: theme.palette.font.alwaysWhite,
+                borderRight: "1px solid #ccc",
+                "&:last-of-type": {
+                  borderRight: "none",
+                },
+              }}
+              align="center"
+            >
+              Etiqueta
+            </TableCell>
           </TableRow>
         </TableHead>
 
         <TableBody>
           {rows.map((row) => (
-            <Row key={row.name} row={row} />
+            <Row
+              key={row.name}
+              row={row}
+              sx={{
+                color: theme.palette.font.alwaysWhite,
+                borderRight: "1px solid black",
+                "&:last-of-type": {
+                  borderRight: "none",
+                },
+              }}
+            />
           ))}
         </TableBody>
       </Table>
