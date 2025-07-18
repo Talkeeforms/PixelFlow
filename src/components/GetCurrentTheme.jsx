@@ -18,6 +18,9 @@ import instagramMiniCard from "@/styles/LOGO/crmMiniCards/Meta/instagram.svg";
 import facebookMiniCard from "@/styles/LOGO/crmMiniCards/Meta/facebook.svg";
 //Google
 import googleMiniCard from "@/styles/LOGO/crmMiniCards/Google/google.svg";
+//WhatsApp
+import lightWhatsappIcon from "@/styles/ICONS/Channel/whatsapp.svg";
+import darkWhatsappIcon from "@/styles/ICONS/Channel/whatsapp2.svg";
 
 //Função responsável pelas definições entre temas;
 const getThemeFunction = (mode) => ({
@@ -107,6 +110,9 @@ const getThemeFunction = (mode) => ({
       instagram: instagramMiniCard,
       facebook: facebookMiniCard,
       google: googleMiniCard,
+    },
+    whatsapp: {
+      icon: mode === "light" ? lightWhatsappIcon : darkWhatsappIcon,
     },
   },
 

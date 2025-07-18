@@ -8,6 +8,8 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReportsPage from "./routes/ReportsPage";
+import UsersPage from "./routes/UsersPage";
+import WhatsAppPage from "./routes/WhatsAppPage";
 
 //Variável responsável pelo roteamento de páginas da aplicação;
 const router = createBrowserRouter([
@@ -36,6 +38,8 @@ const router = createBrowserRouter([
         path: "reports",
         element: <ReportsPage />,
       },
+      { path: "users", element: <UsersPage /> },
+      { path: "whatsapp", element: <WhatsAppPage /> },
     ],
   },
 ]);

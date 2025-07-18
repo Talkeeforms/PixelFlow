@@ -179,7 +179,7 @@ export default function SignIn() {
             bottom: 0,
             left: 0,
             right: 0,
-            zIndex: -1, // Ensure it sits behind everything else
+            zIndex: -1,
             backgroundImage: `url(${backgroundImage})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
