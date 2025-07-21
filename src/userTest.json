@@ -1,0 +1,14 @@
+{
+  "user": {
+    "id": 1,
+    "name": "Junior",
+    "email": "thiago@gmail.com",
+    "password": "123",
+    "image": "",
+    "role": "client",
+    "preferences": {
+      "theme": "dark",
+      "notifications": true
+    }
+  }
+}

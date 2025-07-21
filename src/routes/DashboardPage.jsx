@@ -9,9 +9,12 @@ import TermometerContainer from "../components/dashboard/termometer/TermometerCo
 import DevicesContainer from "../components/dashboard/devices/DevicesContainer";
 
 import SellsContainer from "../components/dashboard/sells/SellsContainer";
+import { useUser } from "../UserContext";
 
 export default function DashboardPage() {
   const theme = useTheme("light");
+  const info = useUser();
+
   return (
     <>
       <div
@@ -25,7 +28,7 @@ export default function DashboardPage() {
           padding: "10px",
         }}
       >
-        <Banner />
+        <Banner user={info.user.user} />
         <Box sx={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
           <OriginContainer />
           <ChannelContainer />

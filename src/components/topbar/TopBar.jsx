@@ -1,11 +1,13 @@
 import { useTheme } from "@emotion/react";
-import { useMediaQuery } from "@mui/material";
+import { Button, IconButton, useMediaQuery } from "@mui/material";
 import { useState, useEffect } from "react";
 
 import { Box, Chip } from "@mui/material";
 import { Account } from "@toolpad/core";
 import { ThemeSwitcher } from "@toolpad/core";
 import { UserPopup } from "./UserPopup";
+
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 
 export default function TopBar() {
   const [currentTheme, setCurrentTheme] = useState(
@@ -79,6 +81,9 @@ export default function TopBar() {
           right: 20,
         }}
       >
+        <IconButton>
+          <NotificationsNoneIcon sx={{ fontSize: "30px" }} />
+        </IconButton>
         <Box
           sx={{
             display: isMobile ? "none" : "flex",

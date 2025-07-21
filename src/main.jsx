@@ -10,6 +10,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReportsPage from "./routes/ReportsPage";
 import UsersPage from "./routes/UsersPage";
 import WhatsAppPage from "./routes/WhatsAppPage";
+import SettingsPage from "./routes/SettingsPage";
+import { UserProvider } from "./UserContext";
 
 //Variável responsável pelo roteamento de páginas da aplicação;
 const router = createBrowserRouter([
@@ -18,7 +20,7 @@ const router = createBrowserRouter([
     element: <SignIn />, //Página a ser exibida;
   },
   {
-    Component: App,
+    element: <App />,
     path: "/",
     children: [
       //Páginas internas da aplicação (Páginas do menu lateral);
@@ -40,12 +42,15 @@ const router = createBrowserRouter([
       },
       { path: "users", element: <UsersPage /> },
       { path: "whatsapp", element: <WhatsAppPage /> },
+      { path: "settings", element: <SettingsPage /> },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </StrictMode>
 );

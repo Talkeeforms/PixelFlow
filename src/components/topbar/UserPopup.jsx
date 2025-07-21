@@ -33,7 +33,11 @@ function LogoutButton({ background, font }) {
   );
 }
 
-function CommonButton({ text, Icon, theme }) {
+function CommonButton({ text, Icon, theme, local }) {
+  const navigate = useNavigate();
+  const handleRedirect = () => {
+    navigate("/" + local);
+  };
   return (
     <Button
       variant="text"
@@ -44,6 +48,7 @@ function CommonButton({ text, Icon, theme }) {
         backgroundColor: theme.palette.background.popupCard,
       }}
       startIcon={Icon ? <Icon /> : null}
+      onClick={handleRedirect}
     >
       <Typography sx={{ width: "200px" }}>{text}</Typography>
     </Button>
@@ -79,9 +84,24 @@ export function UserPopup() {
           gap: "10px",
         }}
       >
-        <CommonButton text="Modificar Perfil" Icon={PersonIcon} theme={theme} />
-        <CommonButton text="Financeiro" Icon={AttachMoneyIcon} theme={theme} />
-        <CommonButton text="Configurações" Icon={SettingsIcon} theme={theme} />
+        <CommonButton
+          text="Modificar Perfil"
+          Icon={PersonIcon}
+          theme={theme}
+          local={""}
+        />
+        <CommonButton
+          text="Financeiro"
+          Icon={AttachMoneyIcon}
+          theme={theme}
+          local={""}
+        />
+        <CommonButton
+          text="Configurações"
+          Icon={SettingsIcon}
+          theme={theme}
+          local={"settings"}
+        />
         <LogoutButton
           background={theme.palette.background.blueCard}
           font={theme.palette.font.alternative}

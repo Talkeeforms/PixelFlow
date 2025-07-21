@@ -22,7 +22,7 @@ const bannerStyles = {
 };
 
 //Componente de Banner da Dashboard;
-export default function Banner() {
+export default function Banner({ user }) {
   const theme = getTheme("light");
   return (
     <Box sx={bannerStyles}>
@@ -44,7 +44,8 @@ export default function Banner() {
             typography: { md: "h3", xs: "h7" },
           }}
         >
-          Oi, Thiago!{" "}
+          Oi, {`${user.name}`} {""}
+          {console.log(user)}
           <Box
             component="img"
             sx={{

@@ -24,6 +24,9 @@ import GroupIcon from "@mui/icons-material/Group";
 import ChatIcon from "@mui/icons-material/Chat";
 import BugReportIcon from "@mui/icons-material/BugReport";
 
+import { useUser } from "./UserContext";
+import { useAuth } from "./AuthContext";
+
 //Variável responsável pelo armazém das páginas do menu lateral, incluindo ícone e link;
 const navigate = [
   {
@@ -76,18 +79,13 @@ const navigate = [
 ];
 
 //Variável demonstração de usuario no Popup;
-const user = {
-  user: {
-    name: "Thiago Souza",
-    email: "thiago@gmail.com",
-    image: "src/assets/user.webp",
-  },
-};
 
 export default function App() {
   const [currentTheme, setCurrentTheme] = useState(
     document.documentElement.getAttribute("data-toolpad-color-scheme")
   ); //Variável estado responsável por armazenar o tema atual da aplicação;
+
+  const { user, setUser } = useUser();
 
   const theme = getTheme(currentTheme || "light"); //Variável que armazena a função gerenciador de temas;
 
@@ -177,6 +175,7 @@ export default function App() {
               }}
             >
               <Outlet />
+              {console.log(user)}
             </Paper>
             <BottomBar isMobile={isMobile} />
           </PageContainer>

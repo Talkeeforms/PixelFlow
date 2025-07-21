@@ -96,6 +96,14 @@ const rows = [
 
 function Row({ row }) {
   const [open, setOpen] = React.useState(false);
+  const [selected, setSelected] = React.useState("Disparo do Pixel");
+  const buttons = [
+    "Contato",
+    "UTM",
+    "Disparo do Pixel",
+    "Agendamento",
+    "Compra",
+  ];
 
   return (
     <React.Fragment>
@@ -132,11 +140,15 @@ function Row({ row }) {
               }}
             >
               <ButtonGroup>
-                <Button>Contato</Button>
-                <Button>UTM</Button>
-                <Button variant="contained">Disparo do Pixel</Button>
-                <Button>Agendamento</Button>
-                <Button>Compra</Button>
+                {buttons.map((label) => (
+                  <Button
+                    key={label}
+                    variant={selected === label ? "contained" : "outlined"}
+                    onClick={() => setSelected(label)}
+                  >
+                    {label}
+                  </Button>
+                ))}
               </ButtonGroup>
             </Box>
             <Box margin={2}>
