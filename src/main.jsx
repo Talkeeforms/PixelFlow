@@ -11,7 +11,8 @@ import ReportsPage from "./routes/ReportsPage";
 import UsersPage from "./routes/UsersPage";
 import WhatsAppPage from "./routes/WhatsAppPage";
 import SettingsPage from "./routes/SettingsPage";
-import { UserProvider } from "./UserContext";
+import { UserProvider } from "./context/UserContext";
+import { AuthProvider } from "./context/AuthContext";
 
 //Variável responsável pelo roteamento de páginas da aplicação;
 const router = createBrowserRouter([
@@ -49,8 +50,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <UserProvider>
-      <RouterProvider router={router} />
-    </UserProvider>
+    <AuthProvider>
+      <UserProvider>
+        <RouterProvider router={router} />
+      </UserProvider>
+    </AuthProvider>
   </StrictMode>
 );

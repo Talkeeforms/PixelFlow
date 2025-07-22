@@ -8,10 +8,14 @@ import PersonIcon from "@mui/icons-material/Person";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 function LogoutButton({ background, font }) {
+  const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleLogout = () => {
+    logout();
     navigate("/login");
   };
 

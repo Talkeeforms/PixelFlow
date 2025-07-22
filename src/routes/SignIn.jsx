@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { SignInPage } from "@toolpad/core";
 import {
   Alert,
@@ -11,20 +11,27 @@ import {
 import { useNavigate } from "react-router-dom";
 import "./default.css";
 import backgroundImage from "@/styles/LOGIN/background.png";
+import { AuthContext } from "../context/AuthContext";
 
 const providers = [{ id: "credentials", name: "Email e Senha" }];
 
 export default function SignIn() {
-  const [email, setEmail] = useState("");
-  const [passw, setPassw] = useState("");
   const [alert, setAlert] = useState({
     type: "info",
     message: "Digite um login e senha para continuar",
   });
+  const { login } = useContext(AuthContext);
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
-  const handleSignIn = () => {
-    navigate("/dashboard");
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    try {
+      await login(credentials);
+      navigate("/dashboard");
+    } catch (err) {
+      setAlert({ type: "error", message: "Login falhou" });
+    }
   };
 
   const TitleLogin = () => {
@@ -151,13 +158,15 @@ export default function SignIn() {
           slotProps={{
             emailField: {
               variant: "standard",
-              onChange: (e) => setEmail(e.target.value),
-              value: email,
+              onChange: (e) =>
+                setCredentials({ ...credentials, email: e.target.value }),
+              value: credentials.email,
             },
             passwordField: {
               variant: "standard",
-              onChange: (e) => setPassw(e.target.value),
-              value: passw,
+              onChange: (e) =>
+                setCredentials({ ...credentials, password: e.target.value }),
+              value: credentials.password,
             },
           }}
           slots={{

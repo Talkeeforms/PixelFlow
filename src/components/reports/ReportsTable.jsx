@@ -194,7 +194,6 @@ export default function ReportsTable() {
   return (
     <TableContainer
       sx={{
-        maxWidth: "100%",
         borderRadius: "8px",
         overflow: "hidden",
         overflowX: "auto",

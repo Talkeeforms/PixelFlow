@@ -16,7 +16,7 @@ export default function SellsChart() {
 
   return (
     <ChartContainer
-      xAxis={[{ scaleType: "band", data: ["A", "B", "C", "D", "E"] }]}
+      xAxis={[{ scaleType: "band", data: ["A", "B", "C", "D", "E", "F"] }]}
       series={[
         {
           type: "bar",

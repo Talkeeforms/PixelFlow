@@ -24,6 +24,7 @@ const bannerStyles = {
 //Componente de Banner da Dashboard;
 export default function Banner({ user }) {
   const theme = getTheme("light");
+
   return (
     <Box sx={bannerStyles}>
       <Box
@@ -36,27 +37,30 @@ export default function Banner({ user }) {
           gap: { md: "0.8rem", xs: "0rem" },
         }}
       >
-        <Typography
-          component="h1"
-          fontWeight="700"
-          fontFamily="KumbhSans"
-          sx={{
-            typography: { md: "h3", xs: "h7" },
-          }}
-        >
-          Oi, {`${user.name}`} {""}
-          {console.log(user)}
-          <Box
-            component="img"
+        {user ? (
+          <Typography
+            component="h1"
+            fontWeight="700"
+            fontFamily="KumbhSans"
             sx={{
-              width: "100%",
-              height: "auto",
-              maxWidth: { md: "45px", xs: "25px" },
+              typography: { md: "h3", xs: "h7" },
             }}
-            src={handIcon}
-            alt=""
-          />
-        </Typography>
+          >
+            Oi, {`${user.name} `}
+            <Box
+              component="img"
+              sx={{
+                width: "100%",
+                height: "auto",
+                maxWidth: { md: "45px", xs: "25px" },
+              }}
+              src={handIcon}
+              alt=""
+            />
+          </Typography>
+        ) : (
+          "Inacessível"
+        )}
         <Typography
           fontWeight="200"
           sx={{

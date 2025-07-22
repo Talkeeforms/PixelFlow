@@ -33,7 +33,6 @@ export default function CRMDialog() {
         maxWidth="lg"
         sx={{
           "& .MuiDialog-paper": {
-            borderRadius: "25px",
             backgroundColor: "#DBDBDB",
             width: { md: "60%", xs: "100%" },
             maxWidth: "100%",
